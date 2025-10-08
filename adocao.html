@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/navbar.css" />
+  <link rel="stylesheet" href="CSS/adocao.css" />
+  <title>Adoção</title>
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <h1 class="Titulo adocaoTit">Adoção de animais</h1>
+
+  <!-- filtro  -->
+  <div class="filtros">
+    <input class="filtro-input" type="text" id="filtro-adocao" placeholder="Pesquisar por nome...">
+
+    <select class="filtro-select" id="filtro-tipo" style="padding: 8px;">
+      <option value="todos">Todos</option>
+      <option value="cachorro">Cachorro</option>
+      <option value="gato">Gato</option>
+      <option value="passaro">Pássaro</option>
+      <option value="réptil">Réptil</option>
+      <option value="roedor">Roedor</option>
+      <option value="lagomorfo">Lagomorfo</option>
+    </select>
+  </div>
+
+
+  <div id="adocao-container"></div>
+  <footer>
+    <div class="links">
+      <a href="">Sobre Nós</a>
+      <a href="">Contato</a>
+      <a href="">Termos de Uso</a>
+      <a href="">Politica de Privacidade </a>
+    </div>
+    <div class="redes">
+      <h3>Siga-nos nas redes sociais: </h3>
+      <a href=""><img width="40px" src="Img/icons8-facebook-novo-50.png"></a>
+      <a href=""><img width="40px" src="Img/icons8-instagram-50.png"></a>
+      <a href=""><img width="40px" src="Img/icons8-whatsapp-50.png"> </a>
+      <a href=""><img width="40px" src="Img/icons8-x-50.png"> </a>
+    </div>
+    <div class="line"></div>
+
+    <div class="subContent">
+      <p>Desenvolvido por Manoela Cruz Ramalho , Livia Figueiredo e Sabrina Britto de Abreu</p>
+      <h6>GetPet © 2025 | Todos os direitos reservados.</h6>
+    </div>
+
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="./JS/confete.js"></script>
+  <script src="./JS/navbar.js"></script>
+  <script type="module" src="./JS/cardAdocao.js"></script>
+
+</body>
+
+</html>
