@@ -1,0 +1,333 @@
+ body {
+     min-height: 90vh;
+     display: flex;
+     flex-direction: column;
+     margin: 0;
+     /* importante para remover as margens padrão do body */
+     padding: 0;
+     /*  importante para remover o padding padrão do body */
+ }
+
+
+
+ #conteudo {
+     flex-grow: 2;
+     /* O conteúdo cresce para ocupar o espaço restante */
+     padding: 20px;
+     margin: auto;
+ }
+
+
+ .BotoesHome {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     gap: 20px;
+     margin: 10px 0;
+ }
+
+ .BotoesHome a {
+     background-color: #D4D955 !important;
+     border: 0;
+     border-radius: 8px;
+     width: 250px;
+     height: 50px;
+     font-size: 17px;
+     cursor: pointer;
+     margin: 30px 0;
+     transition: background-color 0.3s;
+     color: black;
+     text-decoration: none;
+     text-align: center;
+     align-content: center;
+     z-index: 11 !important;
+ }
+
+ .BotoesHome a:hover {
+     background-color: #B2B53A !important;
+     z-index: 11 !important;
+ }
+
+
+ .BannerConteiner {
+     background-color: #F26B5E;
+     width: 90vw;
+     height: 250px;
+     margin: 0 auto;
+     overflow: visible;
+     position: relative;
+     display: flex;
+     align-items: center;
+     transition: background-color 0.5s ease-in-out;
+ }
+
+
+ /* ESSENCIAL! Ele esconde os banners que não estão ativos */
+ .BannerFrame {
+     overflow: hidden;
+ }
+
+ .BannerSlider {
+     display: flex;
+     transition: transform 2s ease-in-out;
+     width: 100%;
+ }
+
+ .BannerConteudo {
+     width: 100%;
+     height: 28vw;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-shrink: 0;
+     padding: 0;
+ }
+
+ .TextoBanner {
+     padding-left: 40px;
+ }
+
+ .BannerConteudo h2 {
+     color: white;
+     font-size: 70px;
+     line-height: 0;
+ }
+
+ .BannerConteudo p {
+     line-height: 30px;
+     color: white;
+     font-size: 30px;
+ }
+
+ .BannerDog {
+     margin-top: 90px;
+ }
+
+ .BannerCat {
+     margin-top: 100px;
+ }
+
+ .BannerDog2 {
+     margin-top: 115px;
+     width: 600px;
+ }
+
+
+
+ .categoriashome {
+     display: flex;
+     justify-content: center;
+     gap: 180px;
+     margin-top: 30px;
+     position: relative;
+ }
+
+ .bolinha {
+     width: 100px;
+     height: 100px;
+     border-radius: 100%;
+     cursor: pointer;
+     position: relative;
+     transition: ease-in-out all 0.3s;
+ }
+
+ .bolinha.active {
+     transform: translateY(-5px);
+     /* Efeito de elevação quando ativo */
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+     /* Sombra mais pronunciada */
+ }
+
+ .categ-dropdown {
+     width: 90vw;
+     margin: 30px auto;
+     padding: 30px 0;
+     border-radius: 8px;
+     color: white;
+     font-size: 16px;
+     position: relative;
+     display: none;
+     z-index: 1;
+     transition: all 0.3s ease;
+ }
+
+ /* TRIÂNGULO QUE VAI SE MOVER */
+ .categ-dropdown::before {
+     content: "";
+     position: absolute;
+     top: -15px;
+     left: var(--triangulo-left, 40px);
+     width: 0px;
+     height: 0px;
+     z-index: -1;
+     border-left: 15px solid transparent;
+     border-right: 15px solid transparent;
+     border-bottom: 15px solid var(--triangulo-color, #333);
+     transition: all 0.3s ease;
+ }
+
+ .categ-dropdown p {
+     margin-left: 30px;
+
+ }
+
+ /* Container para os links, usando flexbox para organizar */
+ .dropdown-links {
+     display: flex;
+     flex-direction: column;
+     /* Links em coluna por padrão */
+     gap: 8px;
+     /* Espaçamento entre os links */
+     margin-top: 15px;
+     padding-right: 25px;
+ }
+
+ /* Estilo para o link principal "Ver produtos" */
+ .main-link {
+     display: inline-block;
+     background-color: rgba(255, 255, 255, 0.2);
+     /* Fundo sutil para o link principal */
+     color: inherit;
+     /* Herda a cor do texto do dropdown */
+     padding: 8px 10px;
+     border-radius: 5px;
+     text-decoration: none;
+     font-weight: bold;
+     transition: background-color 0.2s ease;
+ }
+
+ .main-link:hover {
+     background-color: rgba(255, 255, 255, 0.3);
+ }
+
+ /* Container para as subcategorias */
+ .subcat-container {
+     display: flex;
+     flex-wrap: wrap;
+     /* Quebra para a próxima linha se não houver espaço */
+     justify-content: center;
+     /* Centraliza as subcategorias */
+     gap: 10px;
+     /* Espaçamento entre as subcategorias */
+     margin-top: 15px;
+     padding-top: 10px;
+     border-top: 1px solid rgba(255, 255, 255, 0.2);
+     /* Separador sutil */
+ }
+
+ /* Estilo para os links de subcategorias */
+ .subcat-link {
+     color: inherit;
+     /* Herda a cor do texto do dropdown */
+     opacity: 60%;
+     text-decoration: none;
+     font-size: 0.9em;
+     padding: 5px 10px;
+     border-radius: 3px;
+     white-space: nowrap;
+     /* Impede que o texto quebre em várias linhas */
+ }
+
+ .subcat-link:hover {
+     opacity: 100%;
+ }
+
+
+ footer {
+     position: relative;
+     z-index: 1000;
+     width: 100%;
+     background-color: #F2EFBD !important;
+     height: 140px;
+ }
+
+ .links {
+     display: flex;
+     justify-content: center;
+ }
+
+
+ .links a {
+     text-decoration: none;
+     position: relative;
+     color: #365914;
+     margin: 18px 0 10px 28px;
+     font-size: 22px;
+     transition: color 0.6s ease;
+ }
+
+ .links a::after {
+     content: "";
+     position: absolute;
+     width: 0;
+     height: 2px;
+     left: 0;
+     bottom: -3px;
+     background-color: #F26B5E;
+     transition: width 0.6s ease;
+ }
+
+ .links a:hover::after {
+     width: 100%;
+ }
+
+ .redes {
+     display: flex;
+     justify-content: center;
+ }
+
+ .redes h3 {
+     text-decoration: none;
+     color: #365914;
+     margin-left: 10px;
+     margin-top: 6px;
+     font-size: 22px;
+ }
+
+ .redes a {
+     margin-left: 20px;
+     transition: all 1s;
+ }
+
+ .redes a:hover {
+     transform: scale(1.1);
+ }
+
+ .line {
+     background-color: white;
+     height: 10px;
+     position: relative;
+     bottom: 0%;
+     left: 0%;
+     right: 0%;
+     top: 0%;
+
+ }
+
+ .subContent {
+     background-color: #71AB3E !important;
+     width: 100%;
+     height: 100px;
+     position: absolute;
+     bottom: 0%;
+     left: 0%;
+     right: 0%;
+     top: 100%;
+ }
+
+
+ .subContent p {
+     margin-top: 30px;
+     text-align: center;
+     color: white;
+ }
+
+ .subContent h6 {
+     margin-top: -10px;
+     font-size: 14px;
+     text-align: center;
+     color: white;
+ }
+
+ /* _________________________________________________ */
+ /* Scroll */

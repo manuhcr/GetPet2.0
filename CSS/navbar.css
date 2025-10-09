@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&family=Rammetto+One&display=swap');
+
+
+body {
+  font-family: "Mukta Vaani", sans-serif;
+  background-color: #FAF8EB;
+  margin-top: 75px;
+}
+
+.centralizar {
+    display: block;
+    text-align: -webkit-center;
+    unicode-bidi: isolate;
+}
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 2rem;
+  background-color: #F2EFBD;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-logo img{
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -3px;
+  background-color: #71AB3E;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+.Titulo {
+  font-family: "Rammetto One", sans-serif;
+  margin-left: 100px;
+}
+
+
+/* fonte da logo/detalhes */
+.rammetto-one-regular {
+  font-family: "Rammetto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* fonte geral */
+.mukta-vaani-regular {
+  font-family: "Mukta Vaani", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
