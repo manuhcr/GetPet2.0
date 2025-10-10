@@ -1,77 +1,97 @@
-const patasCimaDir = document.getElementById('patas1');
-const patasBaixoDir = document.getElementById('patas2');
-const patasCimaEsq = document.getElementById('patas3');
-const patasBaixoEsq = document.getElementById('patas4');
+const pataDireita = document.getElementById('patasDireita'); // pode ser bottom right
+const pataEsquerda = document.getElementById('patasEsquerda'); // bottom left
 
+// Carrega animações
+const animDireita = lottie.loadAnimation({
+  container: pataDireita,
+  renderer: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'JS/JSON/patinhas.json'
+});
 
-  // carrega as animações
-  const animCimaDir = lottie.loadAnimation({
-    container: patasCimaDir,
-    renderer: 'svg',
-    loop: false,
-    autoplay: false,
-    path:'JS/JSON/patinhas.json'
-  });
+const animEsquerda = lottie.loadAnimation({
+  container: pataEsquerda,
+  renderer: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'JS/JSON/patinhas.json'
+});
 
-  const animBaixoDir = lottie.loadAnimation({
-    container: patasBaixoDir,
-    renderer: 'svg',
-    loop: false,
-    autoplay: false,
-    path: 'JS/JSON/patinhas.json'
-  });
+function direitaParaEsquerda() {
+  // direita inicia embaixo
+  pataDireita.style.opacity = 0.8;
+  pataDireita.style.transform = "rotate(-45deg) translateY(0)";
+  animDireita.goToAndPlay(0, true);
 
-   // carrega as animações
-  const animCimaEsq = lottie.loadAnimation({
-    container: patasCimaEsq,
-    renderer: 'svg',
-    loop: false,
-    autoplay: false,
-    path:'JS/JSON/patinhas.json'
-  });
+  // sobe a direita
+  setTimeout(() => {
+    pataDireita.style.transform = "rotate(-45deg) translateY(-15px)";
+  }, 500);
 
-  const animBaixoEsq = lottie.loadAnimation({
-    container: patasBaixoEsq,
-    renderer: 'svg',
-    loop: false,
-    autoplay: false,
-    path: 'JS/JSON/patinhas.json'
-  });
+  // esquerda aparece depois
+  setTimeout(() => {
+    // esconde a direita e reseta posição
+    pataDireita.style.opacity = 0;
+    pataDireita.style.transform = "rotate(-45deg) translateY(0)";
 
-  function aparecerAlternado() {
-    // mostra em cima na direita
-    patasCimaDir.style.opacity = 0.4;
-    animCimaDir.goToAndPlay(0, true);
+    // mostra esquerda
+    pataEsquerda.style.opacity = 0.8;
+    pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
+    animEsquerda.goToAndPlay(0, true);
 
-    // depois de 3s, some e mostra embaixo
+    // sobe a esquerda
     setTimeout(() => {
-      patasCimaDir.style.opacity = 0;
-      patasBaixoDir.style.opacity = 0.4;
-      animBaixoDir.goToAndPlay(0, true);
-    }, 3000);
+      pataEsquerda.style.transform = "rotate(45deg) translateY(-15px)";
+    }, 500);
 
-    // depois de mais 3s, some embaixo e reinicia ciclo
+    // esconde a esquerda depois
     setTimeout(() => {
-      patasBaixoDir.style.opacity = 0;
-      aparecerAlternado();
-    }, 6000);
-//mostra em cima na esquerda
-   patasCimaEsq.style.opacity = 0.4;
-    animCimaEsq.goToAndPlay(0, true);
+      pataEsquerda.style.opacity = 0;
+      pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
+    }, 2000);
 
-    // depois de 3s, some e mostra embaixo
+  }, 2000);
+
+  // volta pro outro ciclo após 5s
+  setTimeout(esquerdaParaDireita, 5000);
+}
+
+function esquerdaParaDireita() {
+  // esquerda inicia embaixo
+  pataEsquerda.style.opacity = 0.8;
+  pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
+  animEsquerda.goToAndPlay(0, true);
+
+  // sobe a esquerda
+  setTimeout(() => {
+    pataEsquerda.style.transform = "rotate(45deg) translateY(-15px)";
+  }, 500);
+
+  // direita aparece depois
+  setTimeout(() => {
+    // esconde a esquerda e reseta
+    pataEsquerda.style.opacity = 0;
+    pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
+
+    // mostra direita
+    pataDireita.style.opacity = 0.8;
+    pataDireita.style.transform = "rotate(-45deg) translateY(0)";
+    animDireita.goToAndPlay(0, true);
+
+    // sobe a direita
     setTimeout(() => {
-      patasCimaEsq.style.opacity = 0;
-      patasBaixoEsq.style.opacity = 0.4;
-      animBaixoDir.goToAndPlay(0, true);
-    }, 3000);
+      pataDireita.style.transform = "rotate(-45deg) translateY(-15px)";
+    }, 500);
 
-    // depois de mais 3s, some embaixo e reinicia ciclo
+    // esconde a direita depois
     setTimeout(() => {
-      patasBaixoEsq.style.opacity = 0;
-      aparecerAlternado();
-    }, 6000);
-  }
+      pataDireita.style.opacity = 0;
+      pataDireita.style.transform = "rotate(-45deg) translateY(0)";
+    }, 2000);
 
-  // inicia
-  aparecerAlternado();
+  }, 2000);
+
+  // volta pro outro ciclo
+  setTimeout(direitaParaEsquerda, 5000);
+}
