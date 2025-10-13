@@ -113,8 +113,8 @@ button:hover {
 
 .card {
     position: relative;
-    width: 400px;
-    min-height: 400px;
+    width: 40%;
+    min-height: 550px;
     /* garante que o card não mude de altura */
     perspective: 1000px;
 }
@@ -133,18 +133,20 @@ button:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    /* mesmo tamanho para sobreposição perfeita */
+    height: fit-content;
+    justify-items: anchor-center;
     backface-visibility: hidden;
     transition: transform 0.8s, opacity 0.8s;
 }
 
 .login-form {
+    background-color: #005a539c;
     transform: rotateY(0deg);
     opacity: 1;
 }
 
 .register-form {
+    background-color: #c57f51af;
     transform: rotateY(180deg);
     opacity: 0;
 }
@@ -166,17 +168,22 @@ button:hover {
 }
 
 .form {
-    background-color: #005a53a1;
     padding: 4rem;
     max-width: 400px;
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.form-title {
+.register-form h2 {
+    color: #005a539c !important;
+}
+
+.login-form,
+.register-form h2 {
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 600;
+    justify-items: anchor-center;
     text-align: center;
     color: #fffeed;
     font-family: "Rammetto One", sans-serif;
@@ -197,8 +204,13 @@ button:hover {
     margin: 8px 0;
 }
 
-.input-container input {
-    background-color: #fff;
+.login-form .input-container input::placeholder {
+    color: #fff !important;
+}
+
+.login-form .input-container input {
+    background-color: #005a5329;
+
     padding: 1rem;
     padding-right: 3rem;
     font-family: "Mukta Vaani", sans-serif;
@@ -211,7 +223,26 @@ button:hover {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.submit {
+.register-form .input-container input::placeholder {
+    color: #fff !important;
+}
+
+.register-form .input-container input {
+    background-color: #c57f5160;
+
+    padding: 1rem;
+    padding-right: 3rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 300px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.login-form .submit {
     display: block;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
@@ -221,8 +252,25 @@ button:hover {
     color: #FCF3E0;
     font-size: 0.875rem;
     line-height: 1.25rem;
-    font-weight: 500;
-    width: 100%;
+    width: 50%;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-family: "Rammetto One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.register-form .submit {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background-color: #005a53;
+    color: #FCF3E0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 50%;
     border-radius: 0.5rem;
     text-transform: uppercase;
     font-family: "Rammetto One", sans-serif;
@@ -231,15 +279,131 @@ button:hover {
 }
 
 .signup-link {
-    color: #fffdf4;
+    color: #fffdf4 !important;
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-align: center;
-    font-family: "Mukta Vaani", sans-serif;
+    font-family: "Rammetto One", sans-serif;
     font-weight: 400;
     font-style: normal;
+    text-decoration: none;
 }
 
-.signup-link a {
-    text-decoration: underline;
+.signup-link:active {
+    color: #303b31 !important;
+
+}
+
+
+.signup-link:hover {
+    color: #303b31 !important;
+}
+
+.toggle-button-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+
+.button {
+    position: relative;
+    width: 80px;
+    height: 36px;
+}
+
+.checkbox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs,
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.layer {
+    background-color: #005a5346;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.knobs {
+    z-index: 2;
+}
+
+.knobs::before {
+    content: "\f2f6";
+    /* ícone do login - font-awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    background-color: #005a53;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Estado “checked” = cadastro */
+.checkbox:checked+.knobs::before {
+    content: "\f234";
+    /* ícone de cadastro - font-awesome */
+    left: calc(100% - 33px);
+    background-color: #c57f51;
+}
+
+.checkbox:checked~.layer {
+    background-color: #fce7dc;
+}
+
+.modal {
+    display: none;
+    /* escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+
+.modal .close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
 }

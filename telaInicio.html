@@ -18,8 +18,20 @@
 
   <!-- HTML -->
   <div class="card">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Botão de alternar -->
+    <div class="toggle-button-cover">
+      <div class="button r" id="button-3">
+        <input type="checkbox" class="checkbox" />
+        <div class="knobs"></div>
+        <div class="layer"></div>
+      </div>
+    </div>
+
     <div class="card-inner">
       <!-- Form Login -->
+
       <form class="form login-form">
         <h2>Login</h2>
         <div class="input-container">
@@ -29,7 +41,11 @@
           <input type="password" placeholder="Senha">
         </div>
         <button class="submit" type="submit">Entrar</button>
-        <button type="button" class="toggle-btn">Cadastrar</button>
+        <p class="esqueceu-senha">
+          <a id="esqueceu-senha-btn" class="signup-link" href="#">Esqueceu a senha?</a>
+        </p>
+      </form>
+
       </form>
 
       <!-- Form Cadastro -->
@@ -45,8 +61,16 @@
           <input type="password" placeholder="Senha">
         </div>
         <button class="submit" type="submit">Cadastrar</button>
-        <button type="button" class="toggle-btn">Login</button>
       </form>
+    </div>
+  </div>
+  <div id="modal-senha" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Recuperar senha</h2>
+      <p>Digite seu e-mail cadastrado para receber o link de redefinição de senha.</p>
+      <input type="email" id="email-recuperacao" placeholder="Seu email">
+      <button id="enviar-link">Enviar link</button>
     </div>
   </div>
 

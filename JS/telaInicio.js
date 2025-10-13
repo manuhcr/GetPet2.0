@@ -84,12 +84,35 @@ function animPatasEsq() {
 // inicia o ciclo apenas uma vez
 animPatasDir();
 
-const cardInner = document.querySelector('.card-inner');
-const toggleBtns = document.querySelectorAll('.toggle-btn');
+const card = document.querySelector('.card');
+const checkbox = document.querySelector('#button-3 .checkbox');
 
+// quando clicar no botão switch:
+checkbox.addEventListener('change', () => {
+  card.classList.toggle('rotated');
 
-toggleBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    card.classList.toggle('rotated');
+  // muda cor das patinhas ao alternar
+  document.querySelectorAll('.patas svg path').forEach(path => {
+    path.style.fill = checkbox.checked ? '#c57f51ff' : '#005a539a'; //if/else do botão checkbox 
   });
 });
+
+const modal = document.getElementById("modal-senha");
+const btn = document.getElementById("esqueceu-senha-btn");
+const span = document.querySelector(".modal .close");
+
+btn.addEventListener("click", (e) => {
+  e.preventDefault(); // evita que o link role a página
+  modal.style.display = "flex";
+});
+
+span.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
