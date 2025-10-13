@@ -97,22 +97,31 @@ checkbox.addEventListener('change', () => {
   });
 });
 
+// Seleciona o modal inteiro
 const modal = document.getElementById("modal-senha");
+
+// Seleciona o link dentro do login
 const btn = document.getElementById("esqueceu-senha-btn");
+
+// Seleciona o botão de fechar dentro do modal
 const span = document.querySelector(".modal .close");
 
+// Quando o usuário clica no link "Esqueceu a senha?"
 btn.addEventListener("click", (e) => {
-  e.preventDefault(); // evita que o link role a página
-  modal.style.display = "flex";
+  e.preventDefault(); // previne que o link role a página
+  modal.style.display = "flex"; // mostra o modal (display:flex)
 });
 
+// Quando o usuário clica no "×"
 span.addEventListener("click", () => {
-  modal.style.display = "none";
+  modal.style.display = "none"; // esconde o modal
 });
 
+// Quando o usuário clica fora do conteúdo do modal
 window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+  if (e.target === modal) { // se clicou no fundo escuro
+    modal.style.display = "none"; // fecha o modal
   }
 });
+
 
