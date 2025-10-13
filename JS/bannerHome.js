@@ -6,8 +6,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Array de cores para cada banner
     const bannerColors = [
-        '#F26B5E',  // Banner 1: Cachorro
-        '#365914', // Banner 2: Gato
+        '#3A1F03',  // Banner 1: Cachorro
+        '#F5844E', // Banner 2: Gato
         '#71AB3E'   // Banner 3: Cachorro 2
         
     ];

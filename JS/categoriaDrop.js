@@ -6,7 +6,7 @@ const categorias = [
     {
         nome: "Cachorro",
         valor: "cachorro",
-        backgroundColor: "#365914", // Cor da bolinha
+        backgroundColor: "#005A53", // Cor da bolinha
         textColor: "#FFFFFF", // Branco para bom contraste
         subcategorias: [
             { nome: "Ração e Petiscos", valor: "racao" },
@@ -42,7 +42,7 @@ const categorias = [
     {
         nome: "Pássaro",
         valor: "passaro",
-        backgroundColor: "#D4D955",
+        backgroundColor: "#F5844E",
         textColor: "#333333", // Cinza escuro para contraste com fundo claro
         subcategorias: [
             { nome: "Ração para Pássaros", valor: "racao" },
@@ -55,7 +55,7 @@ const categorias = [
     {
         nome: "Peixe",
         valor: "peixe",
-        backgroundColor: "#F2EFBD",
+        backgroundColor: "#C57F51",
         textColor: "#333333", // Cinza escuro para contraste com fundo muito claro
         subcategorias: [
             { nome: "Ração para Peixes", valor: "racao" },
@@ -68,7 +68,7 @@ const categorias = [
     {
         nome: "Roedor",
         valor: "roedor",
-        backgroundColor: "#F26B5E",
+        backgroundColor: "#3A1F03",
         textColor: "#FFFFFF", // Branco para bom contraste
         subcategorias: [
             { nome: "Ração e Alimentos", valor: "racao" },
