@@ -11,33 +11,56 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-/* 🐾 Patinhas */
-.patas.bottom.right {
-    bottom: 50px;
-    right: 80px;
-    transform: rotate(-45deg);
-}
-
-.patas.bottom.left {
-    bottom: 50px;
-    left: 80px;
-    transform: rotate(45deg);
-}
-
+/* 🐾 Patinhas  */
 .patas {
     position: absolute;
     width: 300px;
+    /* ligeiramente menor pra ajustar proporção */
     height: 300px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+/* ===========================
+   POSICIONAMENTO NOS CANTOS
+   =========================== */
+
+/* canto superior direito */
+.patas.top.right {
+    transform: rotate(45deg);
+    top: 40px;
+    right: 80px;
+}
+
+/* canto inferior direito */
+.patas.bottom.right {
+    transform: rotate(-60deg);
+    bottom: 10px;
+    right: 80px;
+}
+
+/* canto superior esquerdo */
+.patas.top.left {
+    transform: rotate(-60deg);
+    top: 40px;
+    left: 80px;
+}
+
+/* canto inferior esquerdo */
+.patas.bottom.left {
+    transform: rotate(45deg);
+    bottom: 10px;
+    left: 80px;
 }
 
 
 /* cor personalizada das patinhas */
-#patasDireita svg path,
-#patasEsquerda svg path {
-    fill: #005A53 !important;
+#pata1 svg path,
+#pata2 svg path,
+#pata3 svg path,
+#pata4 svg path {
+    fill: #005a539a !important;
 }
 
 
@@ -80,9 +103,70 @@ button:hover {
     background: #ff7300;
 }
 
+.switch {
+    border: none !important;
+    background: #005a53;
+    display: flex;
+    justify-self: center;
+}
+
+
+.card {
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    /* garante que o card não mude de altura */
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    transform-origin: center;
+}
+
+.login-form,
+.register-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* mesmo tamanho para sobreposição perfeita */
+    backface-visibility: hidden;
+    transition: transform 0.8s, opacity 0.8s;
+}
+
+.login-form {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+.register-form {
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+
+.card.rotated .login-form {
+    transform: rotateY(-180deg);
+    opacity: 0;
+}
+
+.card.rotated .register-form {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+.switch:hover {
+    transition: all 0.4s;
+    background: #ffffffb9;
+    color: #005a53;
+}
+
 .form {
     background-color: #005a53a1;
-    display: block;
     padding: 4rem;
     max-width: 400px;
     border-radius: 0.5rem;

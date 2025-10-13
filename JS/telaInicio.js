@@ -1,97 +1,95 @@
-const pataDireita = document.getElementById('patasDireita'); // pode ser bottom right
-const pataEsquerda = document.getElementById('patasEsquerda'); // bottom left
+const patasCimaDir = document.getElementById('pata1');  // top right
+const patasBaixoDir = document.getElementById('pata2'); // bottom right
+const patasCimaEsq = document.getElementById('pata3');  // top left
+const patasBaixoEsq = document.getElementById('pata4'); // bottom left
 
-// Carrega animações
-const animDireita = lottie.loadAnimation({
-  container: pataDireita,
+// Carrega as animações Lottie
+const animCimaDir = lottie.loadAnimation({
+  container: patasCimaDir,
   renderer: 'svg',
   loop: false,
   autoplay: false,
   path: 'JS/JSON/patinhas.json'
 });
 
-const animEsquerda = lottie.loadAnimation({
-  container: pataEsquerda,
+const animBaixoDir = lottie.loadAnimation({
+  container: patasBaixoDir,
   renderer: 'svg',
   loop: false,
   autoplay: false,
   path: 'JS/JSON/patinhas.json'
 });
 
-function direitaParaEsquerda() {
-  // direita inicia embaixo
-  pataDireita.style.opacity = 0.8;
-  pataDireita.style.transform = "rotate(-45deg) translateY(0)";
-  animDireita.goToAndPlay(0, true);
+const animCimaEsq = lottie.loadAnimation({
+  container: patasCimaEsq,
+  renderer: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'JS/JSON/patinhas.json'
+});
 
-  // sobe a direita
+const animBaixoEsq = lottie.loadAnimation({
+  container: patasBaixoEsq,
+  renderer: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'JS/JSON/patinhas.json'
+});
+function animPatasDir() {
+  // 🐾 começa na direita inferior
+  patasBaixoDir.style.opacity = 0.5;
+  animBaixoDir.goToAndPlay(0, true);
+
+  // depois de 2s, aparece a de cima esquerda
   setTimeout(() => {
-    pataDireita.style.transform = "rotate(-45deg) translateY(-15px)";
-  }, 500);
-
-  // esquerda aparece depois
-  setTimeout(() => {
-    // esconde a direita e reseta posição
-    pataDireita.style.opacity = 0;
-    pataDireita.style.transform = "rotate(-45deg) translateY(0)";
-
-    // mostra esquerda
-    pataEsquerda.style.opacity = 0.8;
-    pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
-    animEsquerda.goToAndPlay(0, true);
-
-    // sobe a esquerda
-    setTimeout(() => {
-      pataEsquerda.style.transform = "rotate(45deg) translateY(-15px)";
-    }, 500);
-
-    // esconde a esquerda depois
-    setTimeout(() => {
-      pataEsquerda.style.opacity = 0;
-      pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
-    }, 2000);
-
+    patasBaixoDir.style.opacity = 0;
+    patasCimaEsq.style.opacity = 0.5;
+    animCimaEsq.goToAndPlay(0, true);
   }, 2000);
 
-  // volta pro outro ciclo após 5s
-  setTimeout(esquerdaParaDireita, 5000);
+  // depois de +2s, some a de cima esquerda
+  setTimeout(() => {
+    patasCimaEsq.style.opacity = 0;
+  }, 4000);
+
+  // após 8s, inicia a sequência contrária
+  setTimeout(() => {
+    animPatasEsq();
+  }, 8000);
 }
 
-function esquerdaParaDireita() {
-  // esquerda inicia embaixo
-  pataEsquerda.style.opacity = 0.8;
-  pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
-  animEsquerda.goToAndPlay(0, true);
+function animPatasEsq() {
+  // 🐾 começa na esquerda inferior
+  patasBaixoEsq.style.opacity = 0.5;
+  animBaixoEsq.goToAndPlay(0, true);
 
-  // sobe a esquerda
+  // depois de 2s, aparece a de cima direita
   setTimeout(() => {
-    pataEsquerda.style.transform = "rotate(45deg) translateY(-15px)";
-  }, 500);
-
-  // direita aparece depois
-  setTimeout(() => {
-    // esconde a esquerda e reseta
-    pataEsquerda.style.opacity = 0;
-    pataEsquerda.style.transform = "rotate(45deg) translateY(0)";
-
-    // mostra direita
-    pataDireita.style.opacity = 0.8;
-    pataDireita.style.transform = "rotate(-45deg) translateY(0)";
-    animDireita.goToAndPlay(0, true);
-
-    // sobe a direita
-    setTimeout(() => {
-      pataDireita.style.transform = "rotate(-45deg) translateY(-15px)";
-    }, 500);
-
-    // esconde a direita depois
-    setTimeout(() => {
-      pataDireita.style.opacity = 0;
-      pataDireita.style.transform = "rotate(-45deg) translateY(0)";
-    }, 2000);
-
+    patasBaixoEsq.style.opacity = 0;
+    patasCimaDir.style.opacity = 0.5;
+    animCimaDir.goToAndPlay(0, true);
   }, 2000);
 
-  // volta pro outro ciclo
-  setTimeout(direitaParaEsquerda, 5000);
+  // depois de +4s, some a de cima direita
+  setTimeout(() => {
+    patasCimaDir.style.opacity = 0;
+  }, 4000);
+
+  // após 10s, volta pro ciclo da direita
+  setTimeout(() => {
+    animPatasDir();
+  }, 10000);
 }
+
+// inicia o ciclo apenas uma vez
+animPatasDir();
+
+const cardInner = document.querySelector('.card-inner');
+const toggleBtns = document.querySelectorAll('.toggle-btn');
+
+
+toggleBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    card.classList.toggle('rotated');
+  });
+});
