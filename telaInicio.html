@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="CSS/telaInicio.css">
+</head>
+
+
+<body>
+  <!-- Patinhas -->
+  <div id="pata1" class="patas top right"></div>
+  <div id="pata2" class="patas bottom right"></div>
+  <div id="pata3" class="patas top left"></div>
+  <div id="pata4" class="patas bottom left"></div>
+
+  <!-- HTML -->
+  <div class="card">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Botão de alternar -->
+    <div class="toggle-button-cover">
+      <div class="button r" id="button-3">
+        <input type="checkbox" class="checkbox" />
+        <div class="knobs"></div>
+        <div class="layer"></div>
+      </div>
+    </div>
+
+    <div class="card-inner">
+      <!-- Form Login -->
+
+      <form class="form login-form">
+        <h2>Login</h2>
+        <div class="input-container">
+          <input type="text" placeholder="Usuário">
+        </div>
+        <div class="input-container">
+          <input type="password" placeholder="Senha">
+        </div>
+        <button class="submit" type="submit">Entrar</button>
+        <p class="esqueceu-senha">
+          <a id="esqueceu-senha-btn" class="signup-link" href="#">Esqueceu a senha?</a>
+        </p>
+      </form>
+
+      </form>
+
+      <!-- Form Cadastro -->
+      <form class="form register-form">
+        <h2>Cadastro</h2>
+        <div class="input-container">
+          <input type="text" placeholder="Nome">
+        </div>
+        <div class="input-container">
+          <input type="email" placeholder="Email">
+        </div>
+        <div class="input-container">
+          <input type="password" placeholder="Senha">
+        </div>
+        <button class="submit" type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="modal-senha" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Recuperar senha</h2>
+      <p>Digite seu e-mail cadastrado para receber o link de redefinição de senha.</p>
+      <input type="email" id="email-recuperacao" placeholder="Seu email">
+      <button id="enviar-link">Enviar link</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.1/lottie.min.js"></script>
+  <script src="JS/telaInicio.js"></script>
+</body>
+
+</html>
