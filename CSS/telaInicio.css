@@ -165,7 +165,8 @@ button:hover {
 
 .form {
     padding: 4rem;
-    max-width: 400px;
+    place-self: anchor-center;
+    max-width: 500px;
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
