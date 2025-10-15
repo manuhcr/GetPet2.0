@@ -136,7 +136,7 @@ btnHome.addEventListener("click", function (event) {
 });
 
 function verificar() {
-  const usuário = document.getElementById("usuario").value;
+  const usuário = document.getElementById("usuário").value;
   const senha = document.getElementById("senha").value;
 
   if (usuário === "" || senha === "") {
