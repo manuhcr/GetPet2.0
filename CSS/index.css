@@ -236,7 +236,59 @@
      width: 100%;
      margin: 0;
      padding-top: 60px;
+     opacity: 60%;
  }
+
+ .apresentacao .titleapr {
+     margin: 4vw;
+     top: -65vw;
+     position: relative;
+     color: #033a03;
+     font-size: 3vw;
+     font-family: "Rammetto One", sans-serif;
+ }
+
+ .apresentacao p {
+     margin: 4vw 40vw 0 4vw;
+     top: -65vw;
+     position: relative;
+     color: #000000;
+     font-size: 1.5vw;
+     font-weight: 400;
+     font-family: "Mukta Vaani", sans-serif;
+ }
+
+ .BotoesValores {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     gap: 40px;
+     margin: 10px 0;
+ }
+
+ .BotoesValores a {
+     background-color: #C57F51 !important;
+     border: 0;
+     border-radius: 8px;
+     width: 220px;
+     height: 80px;
+     font-size: 12px;
+     cursor: pointer;
+     margin: 30px 0;
+     transition: background-color 0.3s;
+     color: rgb(255, 255, 255);
+     font-family: "Rammetto One", sans-serif;
+     text-decoration: none;
+     text-align: center;
+     align-content: center;
+     z-index: 11 !important;
+ }
+
+ .BotoesHome a:hover {
+     background-color: #fda176 !important;
+     z-index: 11 !important;
+ }
+
 
  footer {
      position: relative;
