@@ -109,7 +109,7 @@ button:hover {
 
 .card {
     position: relative;
-    width: 40%;
+    width: 50%;
     min-height: 550px;
     /* garante que o card não mude de altura */
     perspective: 1000px;
