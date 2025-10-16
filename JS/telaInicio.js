@@ -108,7 +108,8 @@ const span = document.querySelector(".modal .close");
 
 // Quando o usuário clica no link "Esqueceu a senha?"
 btn.addEventListener("click", (e) => {
-  e.preventDefault(); // previne que o link role a página
+  // e (event) é a propriedade que se refere ao elemento DOM que disparou um evento
+  e.preventDefault(); //é um método JavaScript que impede o comportamento padrão de um evento no navegador, ou seja , nesse caso, previne que o link role a página
   modal.style.display = "flex"; // mostra o modal (display:flex)
 });
 
@@ -124,4 +125,29 @@ window.addEventListener("click", (e) => {
   }
 });
 
+const btnHome = document.getElementById('btn-home');
+btnHome.addEventListener("click", function (event) {
+  event.preventDefault(); // impede reload
 
+  // chama verificar e só continua se estiver tudo certo
+  if (verificar()) {
+    renderizar();
+  }
+});
+
+function verificar() {
+  const usuário = document.getElementById("usuário").value;
+  const senha = document.getElementById("senha").value;
+
+  if (usuário === "" || senha === "") {
+    alert("Preencha todos os campos obrigatórios!");
+    return false; // falhou
+  }
+
+  return true; // passou
+}
+
+function renderizar() {
+  const urlHome = "./index.html";
+  window.location.href = urlHome;
+}
