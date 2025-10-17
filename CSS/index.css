@@ -13,7 +13,7 @@
  #conteudo {
      flex-grow: 2;
      /* O conteúdo cresce para ocupar o espaço restante */
-     margin: auto;
+     margin: 0;
  }
 
 
@@ -22,7 +22,7 @@
      flex-direction: row;
      justify-content: center;
      gap: 40px;
-     margin: 10px 0;
+     margin: 0 60px;
  }
 
  .BotoesHome a {
@@ -30,7 +30,7 @@
      border: 0;
      border-radius: 8px;
      width: 280px;
-     height: 80px;
+     height: 70px;
      font-size: 22px;
      cursor: pointer;
      margin: 30px 0;
@@ -231,62 +231,63 @@
      opacity: 100%;
  }
 
- .imgfundo {
-     background-repeat: no-repeat;
+ .apresentacao {
+     margin: 4vw 0 0 0;
+     position: relative;
      width: 100%;
-     margin: 0;
-     padding-top: 60px;
-     opacity: 60%;
+     height: 60vw;
+     margin-bottom: 10vw;
+     background-size: cover;
+     background-position: center;
+     background-image: url(../Img/Rectangle\ 107.png);
+     opacity: 1;
  }
 
  .apresentacao .BotoesValores {
-     top: 101.8vw;
-     position: absolute;
+     position: relative;
+     top: 25vw;
+     margin: 0 4vw;
  }
 
  .apresentacao .titleapr {
-     margin: 4vw;
-     top: -65vw;
-     position: relative;
+     margin: 4vw 30vw 0 4vw;
+     padding: 4vw 0 0 0;
+     font-size: 2.5vw;
      color: #033a03;
-     font-size: 3vw;
+     font-weight: 700;
      font-family: "Rammetto One", sans-serif;
  }
 
  .apresentacao p {
-     margin: 4vw 40vw 0 4vw;
-     top: -65vw;
-     position: relative;
-     color: #000000;
+     margin: 2vw 30vw 0 4vw;
      font-size: 1.5vw;
-     font-weight: 400;
+     font-weight: 600;
+     color: #033a03;
      font-family: "Mukta Vaani", sans-serif;
  }
 
  .BotoesValores {
      display: flex;
-     flex-direction: row;
-     justify-self: center;
-     gap: 120px;
-     margin: 10px 0;
+     justify-content: center;
+     gap: 9.5vw;
  }
 
  .BotoesValores button {
      background-color: #C57F51 !important;
      border: 0;
      border-radius: 8px;
-     width: 220px;
-     height: 80px;
-     font-size: 1vw;
+     width: 280px;
+     height: 70px;
+     font-size: 18px;
      cursor: pointer;
      margin: 30px 0;
      transition: background-color 0.3s;
      color: rgb(255, 255, 255);
-     font-family: "Rammetto One", sans-serif;
      text-decoration: none;
      text-align: center;
      align-content: center;
      z-index: 11 !important;
+     font-family: "Rammetto One", sans-serif;
  }
 
  .BotoesHome a:hover {
@@ -294,6 +295,119 @@
      z-index: 11 !important;
  }
 
+ .mapa {
+     display: flex;
+     justify-content: left;
+     margin-top: 10vw;
+ }
+
+ .titleMapa {
+     text-align: center;
+     width: 100%;
+     font-size: 2vw;
+     color: #033a03;
+     font-family: "Rammetto One", sans-serif;
+ }
+
+
+ .container-mapa {
+     display: flex;
+     flex-direction: row;
+     position: relative;
+ }
+
+ /* 🌎 MAPA DO BRASIL — CORES DE HOVER (PALETA GETPET) */
+
+ #Acre_BR:hover,
+ #Rondônia_BR:hover,
+ #Amazonas_BR:hover {
+     fill: #86c0ba;
+     /* verde escuro */
+     cursor: pointer;
+     transition: fill 0.3s;
+ }
+
+ #Roraima_BR:hover,
+ #Amapá_BR:hover,
+ #Pará_BR:hover {
+     fill: #90d165;
+     /* verde claro */
+     cursor: pointer;
+     transition: fill 0.3s;
+ }
+
+ #Tocantins_BR:hover,
+ #Mato_Grosso_BR:hover,
+ #Mato_Grosso_do_Sul_BR:hover {
+     fill: #f7a883;
+     /* laranja */
+     cursor: pointer;
+     transition: fill 0.3s;
+ }
+
+ #Goiás_BR:hover,
+ #Distrito_Federal_BR:hover,
+ #Minas_Gerais_BR:hover {
+     fill: #d4a078;
+     /* marrom alaranjado */
+     cursor: pointer;
+     transition: fill 0.3s;
+ }
+
+ #Bahia_BR:hover,
+ #Espírito_Santo_BR:hover,
+ #Rio_de_Janeiro_BR:hover {
+     fill: #ffffff;
+     /* marrom escuro */
+     cursor: pointer;
+     transition: fill 0.3s;
+ }
+
+ #São_Paulo_BR:hover,
+ #Paraná_BR:hover,
+ #Santa_Catarina_BR:hover,
+ #Rio_Grande_do_Sul_BR:hover {
+     fill: #91db60;
+     /* verde claro */
+     cursor: pointer;
+     transition: fill 0.3s;
+ }
+
+ #Maranhão_BR:hover,
+ #Piauí_BR:hover,
+ #Ceará_BR:hover,
+ #Rio_Grande_do_Norte_BR:hover,
+ #Paraíba_BR:hover,
+ #Pernambuco_BR:hover,
+ #Alagoas_BR:hover,
+ #Sergipe_BR:hover {
+     fill: #ffb695;
+     /* laranja */
+     cursor: pointer;
+     transition: fill 0.3s;
+ }
+
+ text {
+     cursor: pointer;
+     transition: fill 0.3s ease-in-out;
+ }
+
+ /* Transição suave pra todos */
+ path {
+     transition: fill 0.3s ease-in-out;
+ }
+
+ .info-box {
+     position: absolute;
+     left: 20vw;
+     background-color: #fffbed;
+     border: 2px solid #dfd6d6;
+     border-radius: 8px;
+     padding: 10px;
+     display: flex;
+     pointer-events: none;
+     z-index: 10;
+ }
 
  footer {
      position: relative;
@@ -301,6 +415,7 @@
      width: 100%;
      background-color: #C57F51 !important;
      height: 116px;
+     top: 14vw;
  }
 
  .links {

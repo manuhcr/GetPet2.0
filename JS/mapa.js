@@ -1,60 +1,24 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const estados = document.querySelectorAll("#map .state");
-    const seletor = document.getElementById("seletory");
+const filiais = {
+  Rio_Grande_do_Sul_BR: "Rua das Flores, 123, Porto Alegre",
+  São_Paulo_BR: "Av. Paulista, 1000, São Paulo"
+  // outros estados...
+};
 
-    estados.forEach(function (estadoEl) {
-        estadoEl.addEventListener("click", function (e) {
-            e.preventDefault();
+const infoBox = document.getElementById('info-box');
+const estadoNome = document.getElementById('estado-nome');
+const endereco = document.getElementById('endereco');
 
-            const estado = estadoEl.getAttribute("data-state");
-            const boxEstado = document.getElementById("box_" + estado);
-
-            console.log(".state_" + estado + " .shape");
-
-            // Resetar cores
-            document.querySelectorAll(".state .label_icon_state").forEach(el => {
-                el.style.fill = "#666";
-            });
-            document.querySelectorAll(".state .shape").forEach(el => {
-                el.style.fill = "#ddd";
-            });
-
-            // Destacar estado selecionado
-            const label = document.querySelector("#state_" + estado + " .label_icon_state");
-            const shape = document.querySelector("#state_" + estado + " .shape");
-            if (label) label.style.fill = "#FFF";
-            if (shape) shape.style.fill = "#fd7132";
-
-            // Mostrar box do estado
-            document.querySelectorAll(".parca .estado").forEach(el => {
-                el.classList.add("some");
-                el.style.opacity = "0";
-                el.style.visibility = "hidden";
-            });
-
-            if (boxEstado) {
-                boxEstado.classList.remove("some");
-                boxEstado.style.opacity = "1";
-                boxEstado.style.visibility = "visible";
-            } else {
-                console.log("Não existe");
-            }
-        });
-    });
-
-    // Select responsivo
-    if (seletor) {
-        seletor.addEventListener("change", function () {
-            document.querySelectorAll(".parca .estado").forEach(el => {
-                el.style.opacity = "0";
-                el.style.visibility = "hidden";
-            });
-
-            const box = document.getElementById("box_" + seletor.value);
-            if (box) {
-                box.style.opacity = "1";
-                box.style.visibility = "visible";
-            }
-        });
-    }
+document.querySelectorAll('svg path').forEach(path => {
+  path.addEventListener('click', (e) => {
+    const id = e.target.id; // é o ID do estado clicado, ex: "Rio_Grande_do_Sul_BR"
+    
+    // atualiza o conteúdo da caixa de informação                       
+    estadoNome.textContent = id;
+    endereco.textContent = filiais[id] || "Não temos filial neste estado.";
+    
+    // posiciona a caixa perto do clique
+    infoBox.style.left = e.pageX + 10 + 'px';
+    infoBox.style.top = e.pageY + 10 + 'px';
+    infoBox.style.display = 'block';
+  });
 });
