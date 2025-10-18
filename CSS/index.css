@@ -297,8 +297,7 @@
 
  .mapa {
      display: flex;
-     justify-content: left;
-     margin-top: 10vw;
+     justify-content: center;
  }
 
  .titleMapa {
@@ -395,18 +394,47 @@
  /* Transição suave pra todos */
  path {
      transition: fill 0.3s ease-in-out;
+     stroke: #fff;
+     fill: #ebffe06b;
+ }
+
+ .info-container {
+     position: relative;
+     top: -8vw;
+     right: 10px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     pointer-events: none;
+     z-index: 10;
  }
 
  .info-box {
-     position: absolute;
-     left: 20vw;
-     background-color: #fffbed;
-     border: 2px solid #dfd6d6;
+     justify-content: left;
+     width: 30vw;
+     margin-top: 2vw;
+     background-color: tranparent;
+     border: 2px solid #145c3e;
      border-radius: 8px;
      padding: 10px;
-     display: flex;
      pointer-events: none;
      z-index: 10;
+
+ }
+
+ .info-box h2 {
+     text-align: center;
+     color: #C57F51;
+     font-family: "Rammetto One", sans-serif;
+ }
+
+ .info-box ul {
+     text-align: left;
+     padding-left: 30px;
+     margin-top: 10px;
+     color: #C57F51;
+     font-family: "Mukta Vaani", sans-serif;
+     list-style-type: none;
  }
 
  footer {
