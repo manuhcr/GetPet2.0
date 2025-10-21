@@ -1,7 +1,7 @@
 // Mapa interativo - JS/mapa.js
 const filiais = {
   "São_Paulo_BR": [
-    "Av. Paulista, 1000 - São Paulo - SP",
+    "Av. Paulista, 1000 - São Paulo -  SP (Matriz)",
     "Rua Independência, 300 - Campinas - SP",
     "Av. Getúlio Vargas, 450 - Ribeirão Preto - SP",
     "Rua das Palmeiras, 120 - Santos - SP",
@@ -105,6 +105,9 @@ document.querySelectorAll('svg path').forEach(path => {
       case "Goiás_BR":
         estadoNome.textContent = "Goiás";
         break;
+      case "Distrito_Federal_BR":
+        estadoNome.textContent = "Distrito Federal"
+        break
       // outros casos...
       default:
         estadoNome.textContent = "Estado sem filial";
