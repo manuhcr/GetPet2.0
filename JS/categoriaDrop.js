@@ -109,7 +109,6 @@ bolinhas.forEach((bolinha, index) => {
 
             dropdownContent.innerHTML = `
                 <div class="dropdown-links">
-                    <a href="produtos.html?categoria=${encodeURIComponent(categoria.valor)}" class="main-link">Ver produtos de ${categoria.nome}</a>
                     <div class="subcat-container">${subcategoriasHTML}</div>
                 </div>
             `;

@@ -78,42 +78,39 @@
  }
 
  footer {
-   margin-top: 50px;
    position: relative;
    z-index: 1000;
    width: 100%;
-   background-color: #F2EFBD !important;
-   height: 140px;
+   background-color: #C57F51 !important;
+   height: 116px;
+   top: 14vw;
  }
 
  .links {
    display: flex;
    justify-content: center;
+   margin: 1vw;
  }
 
 
  .links a {
    text-decoration: none;
    position: relative;
-   color: #365914;
+   color: #FFFFFF;
    margin: 18px 0 10px 28px;
    font-size: 22px;
    transition: color 0.6s ease;
  }
 
- .links a::after {
-   content: "";
+
+ .links a:hover::after {
    position: absolute;
    width: 0;
    height: 2px;
    left: 0;
-   bottom: -3px;
-   background-color: #F26B5E;
+   bottom: 0px;
+   background-color: #fffbed;
    transition: width 0.6s ease;
- }
-
- .links a:hover::after {
-   width: 100%;
  }
 
  .redes {
@@ -139,18 +136,17 @@
  }
 
  .line {
-   background-color: white;
+   background-color: #F5844E;
    height: 10px;
    position: relative;
    bottom: 0%;
    left: 0%;
    right: 0%;
    top: 0%;
-
  }
 
  .subContent {
-   background-color: #71AB3E !important;
+   background-color: #005A53 !important;
    width: 100%;
    height: 100px;
    position: absolute;
@@ -174,30 +170,33 @@
    color: white;
  }
 
-/* _______________________________________________ */
-/* Check */
-.adestramento-card {
-    position: relative; /* Essencial para a sobreposição funcionar */
-}
+ /* _______________________________________________ */
+ /* Check */
+ .adestramento-card {
+   position: relative;
+   /* Essencial para a sobreposição funcionar */
+ }
 
-.check-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.9); /* Branco com transparência */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2; /* Garante que a sobreposição fique acima do conteúdo do card */
-}
+ .check-overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.9);
+   /* Branco com transparência */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 2;
+   /* Garante que a sobreposição fique acima do conteúdo do card */
+ }
 
-/* Símbolo de check */
-.check-overlay::before {
-    content: "✔"; /* Símbolo de check */
-    font-size: 4rem;
-    color: #71AB3E;
-    font-weight: bold;
-}
-
+ /* Símbolo de check */
+ .check-overlay::before {
+   content: "✔";
+   /* Símbolo de check */
+   font-size: 4rem;
+   color: #71AB3E;
+   font-weight: bold;
+ }

@@ -28,7 +28,8 @@
    width: 170px;
    border: 0;
    border-radius: 0 20px 20px 0;
-   background-color: #D4D955;
+   background-color: #005A53;
+   color: #ffffff;
  }
 
 
@@ -48,7 +49,7 @@
  }
 
  .card-vet {
-   background-color: #365914;
+   background-color: #005A53;
    height: 406px;
    border-radius: 12px;
    overflow: hidden;
@@ -78,7 +79,7 @@
 
  .card_menor {
    min-height: 300px;
-   background-color: #D4D955;
+   background-color: #C57F51;
    margin-top: -40px;
    border-radius: 10%;
  }

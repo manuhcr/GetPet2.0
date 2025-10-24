@@ -20,7 +20,12 @@ botoes.forEach((botao) => {
         } else {
             caixasTexto.style.display = 'none'; // esconder quando inativo
         }
+ //Posicionar a caixa de texto abaixo do botão clicado
+        const rect = botao.getBoundingClientRect();
+        caixasTexto.style.top = `${rect.bottom + 560}px`;
+        caixasTexto.style.left = `${rect.left - 50}px`; 
 
+    
 
     });
 });
