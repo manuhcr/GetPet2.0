@@ -25,6 +25,14 @@
      margin: 0;
  }
 
+ .Titulo {
+     font-family: "Rammetto One", sans-serif;
+     color: #005A53;
+     font-size: 3vw;
+     margin-left: 0 !important;
+     text-align: center;
+     margin: 2vw;
+ }
 
  .BotoesHome {
      display: flex;
@@ -67,6 +75,7 @@
      display: flex;
      align-items: center;
      transition: background-color 0.5s ease-in-out;
+     border-radius: 16px;
  }
 
 
@@ -89,6 +98,7 @@
      align-items: center;
      flex-shrink: 0;
      padding: 0;
+     border-radius: 20px;
  }
 
  .TextoBanner {
@@ -262,7 +272,7 @@
 
  .apresentacao .BotoesValores {
      position: relative;
-     top: 25vw;
+     top: -1vw;
      margin: 0 4vw;
  }
 
@@ -682,10 +692,10 @@
      flex: 2 1 20%;
      justify-items: anchor-center;
      z-index: 5;
-     border: 2px solid #71AB3E;
-     background-color: #71ab3e5e;
+     border: 4px solid #C57F51;
+     background-color: #005A53;
      padding: 40px;
-     margin: 40px;
+     margin: 40px 120px 10px 100px;
      max-height: 500px;
      max-width: 700px;
      border-radius: 20px;
@@ -695,14 +705,14 @@
      margin-left: 0;
      font-size: 2vw;
      margin-bottom: 40px;
-     color: #365914;
+     color: #FCF3E0;
  }
 
  user agent stylesheet div .formulario-contato .Titulo {
      margin-left: 0;
      font-size: 2vw;
      margin-bottom: 40px;
-     color: #365914;
+     color: #005A53;
  }
 
  .formulario-contato input,
@@ -739,10 +749,10 @@
  .sobrenos-button {
      padding: 8px 15px;
      margin-top: 10px;
-     border: 1.5px solid #71AB3E;
+     border: 1.5px solid #F5844E;
      border-radius: 20px;
      background-color: transparent;
-     color: #71AB3E;
+     color: #F5844E;
      font-weight: bold;
      cursor: pointer;
      transition: all 0.3s ease;
@@ -751,7 +761,7 @@
  }
 
  .sobrenos-button:hover {
-     background-color: #71AB3E;
+     background-color: #F5844E;
      color: white;
  }
 
@@ -759,7 +769,7 @@
  .card-doacao {
      margin: 30px 0;
      padding: 30px;
-     width: 50vw;
+     width: 56vw;
      border-radius: 10px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
      text-align: center;

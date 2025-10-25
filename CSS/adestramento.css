@@ -15,11 +15,17 @@
    justify-content: center;
  }
 
+ .Titulo {
+   text-align: center;
+   font-family: "Rammetto One", sans-serif;
+   margin-left: 0 !important;
+ }
+
  .adestramentoTit {
    margin-top: 100px;
    font-size: 2rem;
    font-weight: bold;
-   color: #365914;
+   color: #005A53;
    margin-bottom: 40px;
  }
 
@@ -48,9 +54,10 @@
  }
 
  .adestramento-info h2 {
-   font-size: 20px;
+   font-size: 14px;
    margin: 0;
-   font-weight: bold;
+   color: #005A53;
+   font-family: "Rammetto One", sans-serif;
  }
 
  .adestramento-info p {
@@ -62,10 +69,10 @@
  .adestramento-button {
    padding: 8px 15px;
    margin-top: 10px;
-   border: 1.5px solid #71AB3E;
+   border: 1.5px solid #F5844E;
    border-radius: 20px;
    background-color: transparent;
-   color: #71AB3E;
+   color: #F5844E;
    font-weight: bold;
    cursor: pointer;
    transition: all 0.3s ease;
@@ -73,7 +80,7 @@
  }
 
  .adestramento-button:hover {
-   background-color: #71AB3E;
+   background-color: #F5844E;
    color: white;
  }
 
@@ -169,6 +176,7 @@
    text-align: center;
    color: white;
  }
+
 
  /* _______________________________________________ */
  /* Check */

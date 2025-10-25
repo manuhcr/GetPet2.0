@@ -10,7 +10,8 @@ function renderAnimais(lista) {
   container.innerHTML = "";
 
   if (lista.length === 0) {
-    container.innerHTML = "<p style='text-align: center;'>Nenhum animal encontrado.</p>";
+    container.innerHTML = "<div style = 'display: flex; justify-content: center; flex-direction: column;'><p style='text-align: center; color: #005A53; font-family: Rammeto One , sans-serif;'>Ops! Este animal já foi adotado ou ele está indisponível</p > <img src='./Img/caoTriste.png' style='display:block;margin:0 auto;' alt='Animal indisponível'> </div>";
+
     return;
   }
 
@@ -19,7 +20,7 @@ function renderAnimais(lista) {
     card.className = "adocao-card";
 
     card.innerHTML = `
-      <img src="${animal.imagem}" class="adocao-image">
+      <img src="${animal.imagem}" class="adocao-image" alt="Foto de ${animal.nome}">
       <div class="adocao-info">
         <h2>${animal.nome}</h2>
         <p>${animal.descricao}</p>

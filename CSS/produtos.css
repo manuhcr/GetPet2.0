@@ -8,7 +8,11 @@
      /*  importante para remover o padding padrão do body */
  }
 
-
+ .Titulo {
+     text-align: center;
+     font-family: "Rammetto One", sans-serif;
+     margin-left: 0 !important;
+ }
 
  .filtros {
      text-align: center;
@@ -27,7 +31,8 @@
      width: 170px;
      border: 0;
      border-radius: 0 20px 20px 0;
-     background-color: #D4D955;
+     background-color: #005A53;
+     color: #ffffff;
  }
 
 
@@ -41,7 +46,7 @@
 
  .prodtitulo {
      margin-top: 100px;
-     color: #365914;
+     color: #005A53;
  }
 
  .prod-card {
@@ -61,7 +66,9 @@
 
  .tit-prod {
      line-height: 1;
-     font-size: 20px;
+     font-size: 14px;
+     font-family: "Rammetto One", sans-serif;
+     color: #005A53;
  }
 
  .subtit-prod {
@@ -127,8 +134,8 @@
  .btn-prod {
      background: transparent;
      font-size: 15px;
-     border: 1px solid #7cc33f;
-     color: #7cc33f;
+     border: 1px solid #F5844E;
+     color: #F5844E;
      padding: 6px 15px;
      margin-bottom: 15px;
      border-radius: 20px;
@@ -138,7 +145,7 @@
  }
 
  .btn-prod:hover {
-     background: #7cc33f;
+     background: #F5844E;
      color: #fff;
  }
 
@@ -153,6 +160,7 @@
      width: 100%;
      background-color: #C57F51 !important;
      height: 116px;
+     top: 14vw;
  }
 
  .links {
@@ -171,8 +179,8 @@
      transition: color 0.6s ease;
  }
 
- .links a::after {
-     content: "";
+
+ .links a:hover::after {
      position: absolute;
      width: 0;
      height: 2px;
@@ -180,10 +188,6 @@
      bottom: 0px;
      background-color: #fffbed;
      transition: width 0.6s ease;
- }
-
- .links a:hover::after {
-     width: 100%;
  }
 
  .redes {

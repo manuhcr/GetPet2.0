@@ -44,21 +44,30 @@ function criarCard(prod) {
 
 function renderizarProdutos(lista) {
     container.innerHTML = "";
-  
+
+    //Restaura os estilos flex para o layout dos cards
+    if (container) {
+        container.style.display = "flex";
+        container.style.flexWrap = "wrap";
+        container.style.gap = "30px";
+        container.style.justifyContent = "center";
+        container.style.alignItems = "flex-start"; // Use flex-start para manter o topo alinhado
+    }
+
     lista.forEach(prod => {
         const card = criarCard(prod);
         container.appendChild(card);
-  
+
         const btn = card.querySelector(".btn-prod");
         const detalhes = card.querySelector(".detalhes-prod");
-  
+
         btn.addEventListener("click", () => {
             document.querySelectorAll(".detalhes-prod.aberto").forEach(outro => {
                 if (outro !== detalhes) {
                     outro.classList.remove("aberto");
                 }
             });
-  
+
             detalhes.classList.toggle("aberto");
         });
     });
@@ -75,7 +84,7 @@ function aplicarFiltros() {
         const nomeMatch = prod.titulo.toLowerCase().includes(nomeBuscado) || prod.subtitulo.toLowerCase().includes(nomeBuscado);
 
         // Normalizar strings para comparar sem acentos
-        const normalizar = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); 
+        const normalizar = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
         const categoriaMatch =
             categoriaSelecionada === "" ||
             normalizar(prod.categoria) === normalizar(categoriaSelecionada);
@@ -90,6 +99,12 @@ function aplicarFiltros() {
 
         return nomeMatch && categoriaMatch && animalMatch && subcategoriaMatch;
     });
+
+    //VERIFICAR PRODUTOS APÓS O FILTRO 
+    if (filtrados.length === 0) {
+        exibirMensagemSemProduto();
+        return;
+    }
 
     renderizarProdutos(filtrados);
 }
@@ -110,7 +125,45 @@ fetch("./JS/JSON/produtos.json")
         if (categoriaURL) {
             selectCategoria.value = categoriaURL;
         }
+        // VERIFICA se há produtos após o filtro
+        if (!categoriaURL && produtos.length === 0) {
+            exibirMensagemSemProduto();
+            return;
+        }
 
         aplicarFiltros();
     })
     .catch(err => console.error("Erro ao carregar produtos:", err));
+
+
+
+// Função para exibir mensagem quando não há produtos
+function exibirMensagemSemProduto() {
+    if (selectCategoria) {
+        selectCategoria.value = "";
+    }
+
+    let img = document.createElement("img");
+    let response = document.createElement("p");
+
+    response.textContent = "Ops! Não temos este produto ou ele está indisponível";
+    img.src = "./Img/caoTriste.png";
+    img.alt = "Nenhum produto encontrado";
+    response.style.textAlign = "center";
+    response.style.fontSize = "18px";
+    response.style.marginTop = "20px";
+    response.style.fontFamily = "'Rammetto One', sans-serif";
+    response.style.color = "#ff7214ff";
+    img.style.display = "block";
+    img.style.margin = "40px auto";
+    img.style.maxWidth = "300px";
+    container.style.display = "block";
+    container.style.alignItems = "center";
+
+    container.innerHTML = ""; // Limpa o conteúdo atual
+    container.appendChild(response);
+    container.appendChild(img);
+
+
+}
+

@@ -8,6 +8,12 @@
    /*  importante para remover o padding padrão do body */
  }
 
+ .Titulo {
+   text-align: center;
+   font-family: "Rammetto One", sans-serif;
+   margin-left: 0 !important;
+ }
+
  .filtros {
    text-align: center;
    margin-bottom: 40px;
@@ -25,7 +31,8 @@
    width: 170px;
    border: 0;
    border-radius: 0 20px 20px 0;
-   background-color: #D4D955;
+   background-color: #005A53;
+   color: #ffffff;
  }
 
  #adocao-container {
@@ -39,7 +46,7 @@
    margin-top: 100px;
    font-size: 2rem;
    font-weight: bold;
-   color: #365914;
+   color: #005A53;
  }
 
  .adocao-card {
@@ -70,6 +77,8 @@
    font-size: 20px;
    margin: 0;
    font-weight: bold;
+   font-family: "Rammetto One", sans-serif;
+   color: #005A53;
  }
 
  .adocao-info p {
@@ -81,10 +90,10 @@
  .adocao-button {
    padding: 8px 15px;
    margin-top: 10px;
-   border: 1.5px solid #71AB3E;
+   border: 1.5px solid #F5844E;
    border-radius: 20px;
    background-color: transparent;
-   color: #71AB3E;
+   color: #F5844E;
    font-weight: bold;
    cursor: pointer;
    transition: all 0.3s ease;
@@ -92,7 +101,7 @@
  }
 
  .adocao-button:hover {
-   background-color: #71AB3E;
+   background-color: #F5844E;
    color: white;
  }
 
@@ -102,6 +111,7 @@
    width: 100%;
    background-color: #C57F51 !important;
    height: 116px;
+   top: 14vw;
  }
 
  .links {
@@ -120,8 +130,8 @@
    transition: color 0.6s ease;
  }
 
- .links a::after {
-   content: "";
+
+ .links a:hover::after {
    position: absolute;
    width: 0;
    height: 2px;
@@ -129,10 +139,6 @@
    bottom: 0px;
    background-color: #fffbed;
    transition: width 0.6s ease;
- }
-
- .links a:hover::after {
-   width: 100%;
  }
 
  .redes {

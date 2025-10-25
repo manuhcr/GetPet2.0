@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
         '#3A1F03',  // Banner 1: Cachorro
         '#F5844E', // Banner 2: Gato
         '#71AB3E'   // Banner 3: Cachorro 2
-        
+
     ];
 
     function nextBanner() {
@@ -21,6 +21,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Definir a cor inicial
     bannerContainer.style.backgroundColor = bannerColors[current];
+    banners.forEach((banner, index) => {
+        banner.style.borderRadius = '20px'; // Adiciona bordas arredondadas a cada banner
+    });
 
     // Alternar banners a cada 5 segundos
     setInterval(nextBanner, 5000);
