@@ -56,7 +56,7 @@ const categorias = [
         nome: "Peixe",
         valor: "peixe",
         backgroundColor: "#C57F51",
-        textColor: "#333333", // Cinza escuro para contraste com fundo muito claro
+        textColor: "#fffff", // Cinza escuro para contraste com fundo muito claro
         subcategorias: [
             { nome: "Ração para Peixes", valor: "racao" },
             { nome: "Aquários e Acessórios", valor: "aquarios" },
