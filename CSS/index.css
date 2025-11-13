@@ -25,129 +25,131 @@
      margin: 0;
  }
 
- .Titulo {
-     font-family: "Rammetto One", sans-serif;
-     color: #005A53;
-     font-size: 3vw;
-     margin-left: 0 !important;
+
+ .BotoesHome {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     gap: 40px;
+     margin: 0 60px;
+ }
+
+ .BotoesHome a {
+     background-color: #F5844E !important;
+     border: 0;
+     border-radius: 8px;
+     width: 280px;
+     height: 70px;
+     font-size: 22px;
+     cursor: pointer;
+     margin: 30px 0;
+     transition: background-color 0.3s;
+     color: rgb(255, 255, 255);
+     text-decoration: none;
      text-align: center;
-     margin: 2vw;
+     align-content: center;
+     z-index: 11 !important;
+ }
+
+ .BotoesHome a:hover {
+     background-color: #fda176 !important;
+     z-index: 11 !important;
  }
 
 
  .BannerConteiner {
-    width: 100%;
-    height: 100vh; /* Ou a altura que você desejar */
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    border-radius: 0;
-}
+     background-color: #F26B5E;
+     width: 90vw;
+     height: 250px;
+     margin: 0 auto;
+     overflow: visible;
+     position: relative;
+     display: flex;
+     align-items: center;
+     transition: background-color 0.5s ease-in-out;
+     bottom: 20vh;
+ }
 
-.BannerFrame {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
 
-.BannerSlider {
-    display: flex;
-    transition: transform 1s ease-in-out;
-    width: 100%;
-    height: 100%;
-}
+ /* ESSENCIAL! Ele esconde os banners que não estão ativos */
+ .BannerFrame {
+     overflow: hidden;
+ }
 
-.BannerConteudo {
-    position: relative;
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-}
+ .BannerSlider {
+     display: flex;
+     transition: transform 2s ease-in-out;
+     width: 100%;
+ }
 
-.BannerConteudo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra todo o espaço, sem distorcer */
-    display: block;
-}
+ .BannerConteudo {
+     width: 100%;
+     height: 28vw;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-shrink: 0;
+     padding: 0;
+ }
 
-/* Adiciona um overlay com sombra para escurecer as imagens */
-.BannerConteudo::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #3a1f0373; /* Sombra escura */
-    z-index: 1;
-}
+ .TextoBanner {
+     padding-left: 40px;
+ }
 
-.TextoBanner {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    color: white;
-    max-width: 40%;
-    z-index: 2; /* Garante que o texto fique por cima da imagem */
-}
+ .BannerConteudo h2 {
+     color: white;
+     font-size: 3vw;
+     line-height: 0;
+ }
 
-.TextoBanner h2 {
-    font-size: 3vw;
-    margin-bottom: 1vw;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-}
+ .BannerConteudo p {
+     line-height: 30px;
+     color: white;
+     font-size: 2vw;
+ }
 
-.TextoBanner p {
-    font-size: 1.5vw;
-    line-height: 1.4;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-}
+ .BannerDog {
+     margin-top: 90px;
+ }
+
+ .BannerCat {
+     margin-top: 100px;
+ }
+
+ .BannerDog2 {
+     margin-top: 115px;
+     width: 600px;
+ }
 
 
 
+ .categoriashome {
+     display: flex;
+     justify-content: center;
+     gap: 120px;
+     margin-top: 30px;
+     position: relative;
+ }
 
+ .bolinha {
+     width: 100px;
+     height: 100px;
+     border-radius: 100%;
+     cursor: pointer;
+     position: relative;
+     transition: ease-in-out all 0.3s;
+ }
 
- /* Container das bolinhas */
-.categoriashome {
-    display: flex;
-    justify-content: center;   /* Centraliza horizontalmente */
-    align-items: center;       /* Centraliza verticalmente dentro do próprio container */
-    gap: 120px;
-    position: absolute;
-    top: calc(100vh - 0px);   /* ajusta posição vertical — mude o valor para subir/descer */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
-/* Cada bolinha */
-.bolinha {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    
-    display: flex;              /* Centraliza o ícone dentro da bolinha */
-    align-items: center;
-    justify-content: center;
-}
-
-/* Efeito ao passar o mouse */
-.bolinha:hover {
-    transform: scale(1.1);
-}
-
-
+ .bolinha.active {
+     transform: translateY(-5px);
+     /* Efeito de elevação quando ativo */
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+     /* Sombra mais pronunciada */
+ }
 
  .categ-dropdown {
      width: 90vw;
-     margin: 70px auto;
+     margin: 30px auto;
      padding: 30px 0;
      border-radius: 8px;
      color: white;
@@ -261,7 +263,7 @@
 
  .apresentacao .BotoesValores {
      position: relative;
-     top: -1vw;
+     top: 25vw;
      margin: 0 4vw;
  }
 
@@ -510,7 +512,7 @@
  /* ====================
    TÍTULO DA SEÇÃO
 ==================== */
- .titleMapa {
+ t .titleMapa {
      font-family: "Rammetto One", sans-serif;
      font-size: 28px;
      text-align: center;
@@ -540,6 +542,12 @@
      }
  }
 
+
+
+ .BotoesHome a:hover {
+     background-color: #fda176 !important;
+     z-index: 11 !important;
+ }
 
  .mapa {
      display: flex;
@@ -645,103 +653,97 @@
  }
 
 
- .secao-contato {
-    min-height: 100vh;
-    width: 100%;
-    background: url(../Img/contato-bg.jpg) no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+ .container-contato {
+     display: flex;
+     position: relative;
+ }
 
-.secao-contato::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 0;
-}
 
-.container-contato {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 2rem;
-}
+ .imagem-contato {
+     flex: 1;
+     height: 580px;
+ }
 
-.formulario-contato {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    padding: 2rem;
-    width: 100%;
-    max-width: 500px;
-    color: #fff;
-    text-align: center;
-}
+ .imagem-contato img {
+     position: absolute;
+     /* Retira a imagem do fluxo normal */
+     height: 90%;
+     /* Mantém a altura proporcional */
+     max-width: 50%;
+     /* Limita a largura para evitar que cubra todo o formulário */
+     object-fit: cover;
+     left: -10vw;
+     z-index: 10;
+     transform: rotateY(180deg);
+     /* Garante que a imagem fique acima do formulário */
 
-.titulo {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-}
+ }
 
-.formulario-contato input,
-.formulario-contato textarea {
-    width: 90%;
-    padding: 0.9rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
+ .formulario-contato {
+     flex: 2 1 20%;
+     justify-items: anchor-center;
+     z-index: 5;
+     border: 2px solid #71AB3E;
+     background-color: #71ab3e5e;
+     padding: 40px;
+     margin: 40px;
+     max-height: 500px;
+     max-width: 700px;
+     border-radius: 20px;
+ }
 
-.formulario-contato input::placeholder,
-.formulario-contato textarea::placeholder {
-    color: rgba(255, 255, 255, 0.8);
-}
+ .formulario-contato .Titulo {
+     margin-left: 0;
+     font-size: 2vw;
+     margin-bottom: 40px;
+     color: #365914;
+ }
 
-.formulario-contato input:focus,
-.formulario-contato textarea:focus {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-}
+ user agent stylesheet div .formulario-contato .Titulo {
+     margin-left: 0;
+     font-size: 2vw;
+     margin-bottom: 40px;
+     color: #365914;
+ }
 
-.btn-cont {
-    width: 100%;
-    padding: 0.9rem;
-    background: rgba(255, 255, 255, 0.25);
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+ .formulario-contato input,
+ .formulario-contato textarea {
+     margin-bottom: 15px;
+     padding: 12px;
+     font-size: 16px;
+     border: 0;
+     border-radius: 20px;
+     width: 100%;
+     max-width: 600px;
+ }
 
-.btn-cont:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-}
+
+ .btn-cont {
+     background: transparent;
+     font-size: 17px;
+     border: 1px solid #C57F51;
+     color: #fff;
+     padding: 8px 20px;
+     margin-bottom: 15px;
+     border-radius: 20px;
+     cursor: pointer;
+     font-weight: bold;
+     transition: background 0.3s;
+ }
+
+ .btn-cont:hover {
+     background: #C57F51;
+     color: #fff;
+ }
+
 
  .sobrenos-button {
      padding: 8px 15px;
      margin-top: 10px;
-     border: 1.5px solid #F5844E;
+     border: 1.5px solid #71AB3E;
      border-radius: 20px;
      background-color: transparent;
-     color: #F5844E;
+     color: #71AB3E;
      font-weight: bold;
      cursor: pointer;
      transition: all 0.3s ease;
@@ -750,117 +752,31 @@
  }
 
  .sobrenos-button:hover {
-     background-color: #F5844E;
+     background-color: #71AB3E;
      color: white;
  }
 
 
- .secao-doacao {
-    width: 100%;
-    min-height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+ .card-doacao {
+     margin: 30px 0;
+     padding: 30px;
+     width: 50vw;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     text-align: center;
+     display: flex;
+     gap: 5%;
+     text-align: start;
 
-.container-doacao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1000px;
-    width: 100%;
-}
-
-.card-doacao {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    background: #fff;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-    padding: 2.5rem;
-}
-
-.icone-doacao {
-    flex-shrink: 0;
-}
-
-.icone-brilho {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, #ffd700 0%, #ff8800 60%, transparent 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    animation: pulsar 3s infinite ease-in-out;
-    box-shadow: 0 0 30px rgba(255, 165, 0, 0.4);
-}
-
-@keyframes pulsar {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.08); opacity: 0.85; }
-}
-
-.icone-brilho img {
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
-}
-
-.conteudo-doacao {
-    flex: 1;
-    color: #333;
-}
-
-.titulo {
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 1rem;
-}
-
-.conteudo-doacao p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-.botoes-doacao {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.btn-doacao {
-    text-decoration: none;
-    padding: 0.9rem 1.8rem;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.btn-doacao.primario {
-    background: linear-gradient(135deg, #ff8800, #ffb74d);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.4);
-}
-
-.btn-doacao.primario:hover {
-    background: linear-gradient(135deg, #ffb74d, #ff8800);
-    transform: translateY(-3px);
-}
-
-.btn-doacao.secundario {
-    background: transparent;
-    border: 2px solid #ff8800;
-    color: #ff8800;
-}
-
-.btn-doacao.secundario:hover {
-    background: #ff8800;
-    color: #fff;
-}
+     /* quadriculado do card */
+     --color: #e2e2e2;
+     /* cor das linhas */
+     background-color: #f8f8f8;
+     /* cor do fundo */
+     background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
+         linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+     background-size: 55px 55px;
+ }
 
 
  footer {
