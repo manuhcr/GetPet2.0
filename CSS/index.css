@@ -683,11 +683,6 @@
      z-index: 11 !important;
  }
 
- .mapa {
-     display: flex;
-     justify-content: center;
- }
-
  .titleMapa {
      text-align: center;
      width: 100%;
