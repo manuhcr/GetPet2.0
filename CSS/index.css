@@ -25,38 +25,6 @@
      margin: 0;
  }
 
-
- .BotoesHome {
-     display: flex;
-     flex-direction: row;
-     justify-content: center;
-     gap: 40px;
-     margin: 0 60px;
- }
-
- .BotoesHome a {
-     background-color: #F5844E !important;
-     border: 0;
-     border-radius: 8px;
-     width: 280px;
-     height: 70px;
-     font-size: 22px;
-     cursor: pointer;
-     margin: 30px 0;
-     transition: background-color 0.3s;
-     color: rgb(255, 255, 255);
-     text-decoration: none;
-     text-align: center;
-     align-content: center;
-     z-index: 11 !important;
- }
-
- .BotoesHome a:hover {
-     background-color: #fda176 !important;
-     z-index: 11 !important;
- }
-
-
  .BannerConteiner {
      width: 100%;
      height: 100vh;
@@ -686,67 +654,38 @@
      margin-bottom: 40px;
  }
 
- .loader {
-     width: 44.8px;
-     height: 44.8px;
-     position: relative;
-     transform: rotate(45deg);
- }
+ /* RESPONSIVO */
+ @media (max-width: 768px) {
+     .BotoesValores {
+         gap: 15px;
+     }
 
- .loader:before,
- .loader:after {
-     content: "";
-     position: absolute;
-     inset: 0;
-     border-radius: 50% 50% 0 50%;
-     background: #0000;
-     background-image: radial-gradient(circle 11.2px at 50% 50%, #0000 94%, #ff4747);
- }
+     .BotoesValores button {
+         width: 200px;
+         height: 60px;
+         font-size: 16px;
+     }
 
- .loader:after {
-     animation: pulse-ytk0dhmd 1s infinite;
-     transform: perspective(336px) translateZ(0px);
- }
+     .info-box {
+         width: 95%;
+         padding: 15px 20px;
+     }
 
- @keyframes pulse-ytk0dhmd {
-     to {
-         transform: perspective(336px) translateZ(168px);
-         opacity: 0;
+     .titleMapa {
+         font-size: 24px;
      }
  }
 
 
- .info-box ul {
-     list-style: none;
-     padding-left: 0;
-     margin: 0;
-     color: #ffffff;
-     font-size: 16px;
-     line-height: 1.8;
-     text-align: left;
-     display: grid;
-     gap: 0.5em;
+
+ .BotoesHome a:hover {
+     background-color: #fda176 !important;
+     z-index: 11 !important;
  }
 
- .info-box.show {
-     display: block;
- }
-
- #info-box {
-     display: none;
-     background: #71AB3E;
-     color: white;
-     padding: 0.6em 1em;
-     border-radius: 0.5em;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-     width: 200px;
-     text-align: center;
-     font-size: 0.9rem;
-     z-index: 999;
- }
-
- #info-box.show {
-     display: block;
+ .mapa {
+     display: flex;
+     justify-content: center;
  }
 
  .titleMapa {

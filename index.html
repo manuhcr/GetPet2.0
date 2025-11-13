@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="./CSS/navbar.css" />
     <link rel="shortcut icon" href="./Img/get pet 1.png" type="image/x-icon">
-
     <title>HomePage</title>
-
-
 </head>
-
 <body>
+    <!-- Esse id="navbar" que chama a navbar criadas via js -->
     <div id="navbar"></div>
 
+    <!-- Uma main que engloba todo conteudo da home -->
     <main id="conteudo">
         <section>
-            <!-- botoes da home -->
-            <div class="BotoesHome">
-
-
-            </div>
-        </section>
-
-        <section>
-            <!-- banner -->
+            <!-- Banner -->
             <div id="home" class="BannerConteiner">
                 <div class="BannerFrame">
+                    <!-- O Container do Slider, onde vai acontecer de fato o slider -->
                     <div class="BannerSlider">
 
+                        <!-- Essa div séria um slider contendo: -->
                         <div class="BannerConteudo">
+                            <!-- Uma imagem  -->
                             <img class="BannerDog" src="./Img/zoo.jpg" alt="zoo">
+                            <!-- Outra div separando os texto -->
                             <div class="TextoBanner">
                                 <h2>Adote hoje!</h2>
                                 <p>Sabia que cerca de 30% dos animais de rua são abandonados por famílias que não podem
@@ -40,6 +33,7 @@
                             </div>
                         </div>
 
+                        <!-- O restante é copia e cola, e me recusa e explicar a mesma coisa -->
                         <div class="BannerConteudo">
                             <img class="BannerCat" src="./Img/monkey.jpg" alt="monkey">
                             <div class="TextoBanner">
@@ -61,13 +55,13 @@
                     </div>
                 </div>
             </div>
-
-
         </section>
 
         <section>
-            <!-- Categorias -->
+            <!-- Categorias(as bolinhas) -->
+             <!-- Um div englobando todas as bolinhas -->
             <div class="categoriashome">
+                <!-- Nas configurações da div(bolinha), tem o backgroud individual de cada bolinha e o data-index, que é muito importante, pois ele que indica a posição de cada bolinha, dentro da div, tem a tag img, que é o icone de cada bolinha e colocamso um width e margin para todos ficarem com tamanhos iguais -->
                 <div class="bolinha" style="background-color: #005A53;" data-index="0"><img class="icone" style="width: 50px;
     margin: 22px;" src="Img/icons8-cachorro-72.png"></div>
                 <div class="bolinha" style="background-color: #71AB3E;" data-index="1"> <img class="icone"
@@ -83,8 +77,11 @@
                         src="Img/icons8-hamster-50.png" style="width: 50px;
     margin: 22px;"></div>
             </div>
+            <!-- Essa parte é aquele "retangulo" que aparece ao clicar na bolinha -->
             <div class="categ-dropdown" id="dropdown">
+                <!-- Esse é "seta" -->
                 <div id="dropdown-triangulo"></div>
+                <!-- E por fim, o texto que fica nesse "retângulo", que será mudado via js -->
                 <p id="dropdown-content">Texto da categoria</p>
             </div>
         </section>
@@ -155,6 +152,7 @@
         </section>
 
         </div>
+        <!--  
         <section>
             <div class="d-flex">
                 <div class="loader"></div>
@@ -480,6 +478,7 @@
 
                 </div>
         </section>
+        -->
         <section class="getpet-cuida">
             <div class="conteudo">
                 <div class="texto">

@@ -14,36 +14,35 @@ body {
   unicode-bidi: isolate;
 }
 
+/* ==== BASE DO NAVBAR (mantém o que já tinha) ==== */
 .navbar-container {
   position: fixed;
-  height: 70px;
   top: 0;
   left: 0;
   right: 0;
+  height: 80px;
   z-index: 1000;
-  
 }
 
-nav {
+nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0rem 2rem;
+  height: 100%;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 
 nav.transparente {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(3px);
 }
 
 nav.marrom {
   background-color: #cf946c;
-  /* exemplo de marrom, ajusta se quiser */
 }
 
 .nav-logo img {
-  margin: 0;
-  padding: 0;
-  margin-top: 5px;
   height: 60px;
 }
 
@@ -53,10 +52,10 @@ nav.marrom {
 }
 
 .nav-links a {
-  position: relative;
   text-decoration: none;
-  color: hwb(40 98% 0%);
+  color: #fff8e1;
   font-size: 1rem;
+  position: relative;
   transition: color 0.3s ease;
 }
 
@@ -75,23 +74,86 @@ nav.marrom {
   width: 100%;
 }
 
-
-.Titulo {
-  font-family: "Rammetto One", sans-serif;
-  margin-left: 100px;
+/* ==== BOTÃO HAMBÚRGUER ==== */
+.menu-toggle {
+  display: none; /* escondido no desktop */
+  background: none;
+  border: none;
+  color: #fff8e1;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1100;
 }
 
-
-/* fonte da logo/detalhes */
-.rammetto-one-regular {
-  font-family: "Rammetto One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* ==== MENU LATERAL (ASIDE) ==== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 40%;
+  height: 100vh;
+  background-color: #cf946c;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 4rem 2rem;
+  transition: right 0.4s ease;
+  z-index: 1050;
 }
 
-/* fonte geral */
-.mukta-vaani-regular {
-  font-family: "Mukta Vaani", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.mobile-menu.active {
+  right: 0;
+}
+
+.close-menu {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff8e1;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.mobile-links a {
+  position: relative;
+  text-decoration: none;
+  color: #fff8e1;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  padding-bottom: 5px;
+}
+
+.mobile-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #005A53;
+  transition: width 0.3s ease;
+}
+
+.mobile-links a:hover::after {
+  margin-left: 50px;
+   margin-right: 50px;
+  width: 70%;
+}
+/* ==== RESPONSIVIDADE ==== */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none; /* esconde links normais */
+  }
+
+  .menu-toggle {
+    display: block; /* mostra botão hamburguer */
+  }
 }
