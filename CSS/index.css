@@ -66,95 +66,114 @@
 
 
  .BannerConteiner {
-     background-color: #F26B5E;
-     width: 90vw;
-     height: 250px;
-     margin: 0 auto;
-     overflow: visible;
-     position: relative;
-     display: flex;
-     align-items: center;
-     transition: background-color 0.5s ease-in-out;
-     border-radius: 16px;
- }
+    width: 100%;
+    height: 100vh; /* Ou a altura que você desejar */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+}
+
+.BannerFrame {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.BannerSlider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.BannerConteudo {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.BannerConteudo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço, sem distorcer */
+    display: block;
+}
+
+/* Adiciona um overlay com sombra para escurecer as imagens */
+.BannerConteudo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #3a1f0373; /* Sombra escura */
+    z-index: 1;
+}
+
+.TextoBanner {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 40%;
+    z-index: 2; /* Garante que o texto fique por cima da imagem */
+}
+
+.TextoBanner h2 {
+    font-size: 3vw;
+    margin-bottom: 1vw;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.TextoBanner p {
+    font-size: 1.5vw;
+    line-height: 1.4;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
 
 
- /* ESSENCIAL! Ele esconde os banners que não estão ativos */
- .BannerFrame {
-     overflow: hidden;
- }
-
- .BannerSlider {
-     display: flex;
-     transition: transform 2s ease-in-out;
-     width: 100%;
- }
-
- .BannerConteudo {
-     width: 100%;
-     height: 28vw;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     flex-shrink: 0;
-     padding: 0;
-     border-radius: 20px;
- }
-
- .TextoBanner {
-     padding-left: 40px;
- }
-
- .BannerConteudo h2 {
-     color: white;
-     font-size: 3vw;
-     line-height: 0;
- }
-
- .BannerConteudo p {
-     line-height: 30px;
-     color: white;
-     font-size: 2vw;
- }
-
- .BannerDog {
-     margin-top: 90px;
- }
-
- .BannerCat {
-     margin-top: 100px;
- }
-
- .BannerDog2 {
-     margin-top: 115px;
-     width: 600px;
- }
 
 
 
- .categoriashome {
-     display: flex;
-     justify-content: center;
-     gap: 120px;
-     margin-top: 30px;
-     position: relative;
- }
+ /* Container das bolinhas */
+.categoriashome {
+    display: flex;
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;       /* Centraliza verticalmente dentro do próprio container */
+    gap: 120px;
+    position: absolute;
+    top: calc(100vh - 0px);   /* ajusta posição vertical — mude o valor para subir/descer */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
 
- .bolinha {
-     width: 100px;
-     height: 100px;
-     border-radius: 100%;
-     cursor: pointer;
-     position: relative;
-     transition: ease-in-out all 0.3s;
- }
+/* Cada bolinha */
+.bolinha {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    
+    display: flex;              /* Centraliza o ícone dentro da bolinha */
+    align-items: center;
+    justify-content: center;
+}
 
- .bolinha.active {
-     transform: translateY(-5px);
-     /* Efeito de elevação quando ativo */
-     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-     /* Sombra mais pronunciada */
- }
+/* Efeito ao passar o mouse */
+.bolinha:hover {
+    transform: scale(1.1);
+}
+
+
 
  .categ-dropdown {
      width: 90vw;
