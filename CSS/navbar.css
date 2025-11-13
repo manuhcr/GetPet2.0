@@ -28,7 +28,15 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0rem 2rem;
+}
+
+nav.transparente {
+  background-color: transparent;
+}
+
+nav.marrom {
   background-color: #cf946c;
+  /* exemplo de marrom, ajusta se quiser */
 }
 
 .nav-logo img {
