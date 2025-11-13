@@ -681,89 +681,95 @@
  }
 
 
- .container-contato {
-     display: flex;
-     position: relative;
- }
+ .secao-contato {
+    min-height: 100vh;
+    width: 100%;
+    background: url(../Img/contato-bg.jpg) no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
+.secao-contato::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+}
 
- .imagem-contato {
-     flex: 1;
-     height: 580px;
- }
+.container-contato {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+}
 
- .imagem-contato img {
-     position: absolute;
-     /* Retira a imagem do fluxo normal */
-     height: 90%;
-     /* Mantém a altura proporcional */
-     max-width: 50%;
-     /* Limita a largura para evitar que cubra todo o formulário */
-     object-fit: cover;
-     left: -10vw;
-     z-index: 10;
-     transform: rotateY(180deg);
-     /* Garante que a imagem fique acima do formulário */
+.formulario-contato {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    color: #fff;
+    text-align: center;
+}
 
- }
+.titulo {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
 
- .formulario-contato {
-     flex: 2 1 20%;
-     justify-items: anchor-center;
-     z-index: 5;
-     border: 4px solid #C57F51;
-     background-color: #005A53;
-     padding: 40px;
-     margin: 40px 120px 10px 100px;
-     max-height: 500px;
-     max-width: 700px;
-     border-radius: 20px;
- }
+.formulario-contato input,
+.formulario-contato textarea {
+    width: 90%;
+    padding: 0.9rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
 
- .formulario-contato .Titulo {
-     margin-left: 0;
-     font-size: 2vw;
-     margin-bottom: 40px;
-     color: #FCF3E0;
- }
+.formulario-contato input::placeholder,
+.formulario-contato textarea::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
 
- user agent stylesheet div .formulario-contato .Titulo {
-     margin-left: 0;
-     font-size: 2vw;
-     margin-bottom: 40px;
-     color: #005A53;
- }
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
 
- .formulario-contato input,
- .formulario-contato textarea {
-     margin-bottom: 15px;
-     padding: 12px;
-     font-size: 16px;
-     border: 0;
-     border-radius: 20px;
-     width: 100%;
-     max-width: 600px;
- }
+.btn-cont {
+    width: 100%;
+    padding: 0.9rem;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-
- .btn-cont {
-     background: transparent;
-     font-size: 17px;
-     border: 1px solid #C57F51;
-     color: #fff;
-     padding: 8px 20px;
-     margin-bottom: 15px;
-     border-radius: 20px;
-     cursor: pointer;
-     font-weight: bold;
-     transition: background 0.3s;
- }
-
- .btn-cont:hover {
-     background: #C57F51;
-     color: #fff;
- }
-
+.btn-cont:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
 
  .sobrenos-button {
      padding: 8px 15px;
