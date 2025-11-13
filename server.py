@@ -3,7 +3,8 @@ import socketserver
 import webbrowser
 import os
 
-PORT = 5500
+PORT = 8000
+
 
 # Garante que o servidor rode no diretório atual
 os.chdir(os.path.dirname(os.path.abspath(__file__)))

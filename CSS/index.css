@@ -25,14 +25,6 @@
      margin: 0;
  }
 
- .Titulo {
-     font-family: "Rammetto One", sans-serif;
-     color: #005A53;
-     font-size: 3vw;
-     margin-left: 0 !important;
-     text-align: center;
-     margin: 2vw;
- }
 
  .BotoesHome {
      display: flex;
@@ -186,7 +178,7 @@
 
  .categ-dropdown {
      width: 90vw;
-     margin: 70px auto;
+     margin: 30px auto;
      padding: 30px 0;
      border-radius: 8px;
      color: white;
@@ -300,7 +292,7 @@
 
  .apresentacao .BotoesValores {
      position: relative;
-     top: -1vw;
+     top: 25vw;
      margin: 0 4vw;
  }
 
@@ -550,7 +542,7 @@
  /* ====================
    TÍTULO DA SEÇÃO
 ==================== */
- .titleMapa {
+ t .titleMapa {
      font-family: "Rammetto One", sans-serif;
      font-size: 28px;
      text-align: center;
@@ -890,10 +882,10 @@
  .sobrenos-button {
      padding: 8px 15px;
      margin-top: 10px;
-     border: 1.5px solid #F5844E;
+     border: 1.5px solid #71AB3E;
      border-radius: 20px;
      background-color: transparent;
-     color: #F5844E;
+     color: #71AB3E;
      font-weight: bold;
      cursor: pointer;
      transition: all 0.3s ease;
@@ -902,7 +894,7 @@
  }
 
  .sobrenos-button:hover {
-     background-color: #F5844E;
+     background-color: #71AB3E;
      color: white;
  }
 
