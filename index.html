@@ -111,30 +111,65 @@
                     e se conectar com o seu pet. Porque para nós, eles não são apenas animais de estimação: são parte da
                     família.</p>
                 <!-- botoes da home -->
-                <div class="BotoesValores">
-                    <button class="btnCaixa">Compromisso</button>
-                    <button class="btnCaixa">Empatia</button>
-                    <button class="btnCaixa">Educação</button>
-                    <button class="btnCaixa">Transparencia</button>
-                </div>
-                <div class="open">
-                    <div class="open-content"></div>
-                    <div class="open-tail"></div>
-                </div>
+
 
         </section>
+        <h2 class="titleValores">Valores Get Pet</h2>
+        <section class="secao-valores">
 
+            <div class="card">
+                <p class="card-title">Compromisso</p>
+                <p class="small-desc">Nosso compromisso é garantir o bem-estar e a felicidade do seu pet, oferecendo
+                    serviços de alta qualidade e cuidado dedicado.</p>
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </div>
 
+            <div class="card">
+                <p class="card-title">Empatia</p>
+                <p class="small-desc">Entendemos as necessidades únicas de cada pet e tratamos todos com amor e
+                    respeito, criando um ambiente acolhedor.</p>
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="card-title">Educação</p>
+                <p class="small-desc">Acreditamos na importância da educação contínua para garantir as melhores práticas
+                    de cuidado animal.</p>
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="card-title">Transparência</p>
+                <p class="small-desc">Valorizamos a transparência em todas as interações, mantendo você informado sobre
+                    os cuidados prestados ao seu pet.</p>
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </div>
+        </section>
 
         </div>
         <section>
-            <h2 class="titleMapa">Onde estamos??</h2>
-            <div class="mapa">
+            <div class="d-flex">
+                <div class="loader"></div>
+                <h2 class="titleMapa">Onde estamos??</h2>
+            </div>
+            <!-- o card de info -->
 
+            <div class="mapa">
                 <div class="container-mapa">
+
+
                     <?xml version="1.0" standalone="no"?>
                     <svg id="wrapper" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin" height="500" width="500"
                         style="background-color:transparent">
+
                         <metadata>
                             <rdf:rdf xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                                 xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
@@ -422,17 +457,28 @@
                         </polyline>
                     </svg>
                     </g>
+
+
+
                     </svg>
 
+                    <!-- Botão/balão dinâmico -->
+                    <div id="botao-estado" class="map-city__label" style="display:none; position:absolute;">
+                        <span class="map-city__sign" id="botao-texto">GetPet</span>
+                    </div>
+
+                    <!-- Modal -->
+                    <div id="estado-modal" class="modal">
+                        <div class="modal-content">
+                            <span id="modal-close">&times;</span>
+                            <h2 id="modal-estado-nome">Estado</h2>
+                            <ul id="modal-endereco">
+                                <li>Endereço aparecerá aqui</li>
+                            </ul>
+                        </div>
+                    </div>
 
                 </div>
-                <div class="info-container">
-                    <div id="info-box" class="info-box">
-                        <h2 id="estado-nome" style="margin:0; font-size:24px;">Clique em um estado</h2>
-                        <ul id="endereco" style="margin-top:10px;">O endereço aparecerá aqui.</u]>
-                    </div>
-                </div>
-            </div>
         </section>
         <section class="getpet-cuida">
             <div class="conteudo">
@@ -475,8 +521,7 @@
                     <div class="conteudo-doacao">
                         <h2 class="titulo">Como Ajudar</h2>
                         <p>
-                            Existem muitas formas de fazer a diferença: adote um pet, torne-se voluntário ou contribua
-                            com
+
                             Existem muitas formas de fazer a diferença: adote um pet, torne-se voluntário ou contribua
                             com
                             doações.<br>

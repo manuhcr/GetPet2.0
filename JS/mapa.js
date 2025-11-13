@@ -65,61 +65,54 @@ const filiais = {
   ]
 };
 
-const infoBox = document.getElementById('info-box');
-const estadoNome = document.getElementById('estado-nome');
-const endereco = document.getElementById('endereco');
+const mapaSvg = document.getElementById('wrapper');
+const botaoEstado = document.getElementById('botao-estado');
+const botaoTexto = document.getElementById('botao-texto');
 
-document.querySelectorAll('svg path').forEach(path => {
+// Modal
+const modal = document.getElementById('estado-modal');
+const modalClose = document.getElementById('modal-close');
+const modalEstadoNome = document.getElementById('modal-estado-nome');
+const modalEndereco = document.getElementById('modal-endereco');
+
+mapaSvg.querySelectorAll('path').forEach(path => {
   path.addEventListener('click', (e) => {
-    const id = e.target.id; // é o ID do estado clicado, ex: "Rio_Grande_do_Sul_BR"
-    
-    // atualiza o conteúdo da caixa de informação   
-    switch(id){
-      case "Rio_Grande_do_Sul_BR":
-        estadoNome.textContent = "Rio Grande do Sul";
-        break; 
-      case "São_Paulo_BR":
-        estadoNome.textContent = "São Paulo";
-        break;
-      case "Minas_Gerais_BR":
-        estadoNome.textContent = "Minas Gerais";
-        break;
-      case "Rio_de_Janeiro_BR":
-        estadoNome.textContent = "Rio de Janeiro";
-        break;      
-      case "Paraná_BR":
-        estadoNome.textContent = "Paraná";
-        break;
-      case "Santa_Catarina_BR":
-        estadoNome.textContent = "Santa Catarina";
-        break
-      case "Bahia_BR":
-        estadoNome.textContent = "Bahia";
-        break;  
-      case "Ceará_BR":
-        estadoNome.textContent = "Ceará";
-        break;
-      case "Pernambuco_BR":
-        estadoNome.textContent = "Pernambuco";
-        break;
-      case "Goiás_BR":
-        estadoNome.textContent = "Goiás";
-        break;
-      case "Distrito_Federal_BR":
-        estadoNome.textContent = "Distrito Federal"
-        break
-      // outros casos...
-      default:
-        estadoNome.textContent = "Estado sem filial";
-    }
-    const enderecos = filiais[id];
-  if (enderecos) {
-      document.getElementById('endereco').innerHTML =
-        enderecos.map(e => `<li>${e}</li>`).join("");
-    } else {
-      document.getElementById('endereco').innerHTML =
-        "<li>Não temos endereços neste estado.</li>";
-    }
+    const id = e.target.id;
 
+    // bounding box do estado
+    const bbox = e.target.getBBox();
+    const svgRect = mapaSvg.getBoundingClientRect();
+
+    const x = svgRect.left + bbox.x + bbox.width/2 - botaoEstado.offsetWidth/2;
+    const y = svgRect.top + bbox.y + bbox.height + 5;
+
+    // posiciona balão
+    botaoEstado.style.left = `${x}px`;
+    botaoEstado.style.top = `${y}px`;
+    botaoEstado.style.display = 'block';
+
+    const enderecos = filiais[id];
+
+    if (enderecos && enderecos.length > 0) {
+      botaoTexto.textContent = `GetPet ${id.replace(/_/g,' ').replace('BR','')}`;
+      botaoTexto.classList.remove('disabled');
+
+      botaoTexto.onclick = () => {
+        modalEstadoNome.textContent = id.replace(/_/g,' ').replace('BR','');
+        modalEndereco.innerHTML = enderecos.map(e => `<li>${e}</li>`).join("");
+        modal.style.display = 'flex';
+      };
+
+    } else {
+      botaoTexto.textContent = "Não temos filial";
+      botaoTexto.classList.add('disabled');
+      botaoTexto.onclick = null;
+    }
   });
+});
+
+// Fecha modal
+modalClose.addEventListener('click', () => modal.style.display = 'none');
+window.addEventListener('click', (e) => {
+  if (e.target == modal) modal.style.display = 'none';
 });

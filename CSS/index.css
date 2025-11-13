@@ -486,63 +486,199 @@
      font-weight: bold;
  }
 
- /* ====================
-   CAIXA DE EXPANSÃO
-==================== */
- .open {
-     display: none;
-     position: absolute;
-     max-width: 300px;
-     background: #C57F51;
-     border-radius: 12px;
-     padding: 20px 25px;
-     box-shadow: 0 6px 16px rgba(245, 214, 77, 0.15);
-     animation: expandir 0.3s ease forwards;
-     z-index: 20;
+ .titleValores {
+     font-family: "Rammetto One", sans-serif;
+     font-size: 28px;
+     text-align: center;
+     color: #005A53;
+     margin-bottom: 60px;
+     margin-top: -20px;
  }
 
- .open.active {
-     display: block;
+
+ /*Card VALORES */
+ .secao-valores {
+     display: flex;
+     flex-direction: row;
+     /* empilha verticalmente */
+     align-items: center;
+     justify-content: center;
+     gap: 12px;
+     /* espaçamento entre cards */
  }
 
- .open-content {
-     font-family: 'Poppins', sans-serif;
-     font-weight: 300;
-     font-size: 16px;
-     color: #ffffff;
+
+ .card-title {
+     color: #005A53;
+     font-size: 1.5em;
+     line-height: normal;
+     font-weight: 700;
+     margin-bottom: 0.5em;
      text-align: center;
  }
 
- /* Calda da caixa */
- .open-tail {
-     position: absolute;
-     top: -10px;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 20px;
-     height: 20px;
-     background: #C57F51;
-     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-     box-shadow: -3px -3px 6px rgba(0, 0, 0, 0.05);
+ .small-desc {
+     position: relative;
+     z-index: 2;
+     /* acima do :before que tem z-index -1 */
+     opacity: 0;
+     max-height: 0;
+     overflow: hidden;
+     transition: all 0.4s ease;
+     color: #ffffff;
  }
 
- /* Animação de expansão */
- @keyframes expandir {
-     from {
-         opacity: 0;
-         transform: translateY(-10px);
-     }
+ .card.show-text .small-desc {
+     opacity: 1;
+     max-height: 200px;
+     margin-top: 10px;
+     color: #ffffff;
+ }
 
-     to {
-         opacity: 1;
-         transform: translateY(0);
-     }
+ */
+
+ /* Seta */
+ .go-corner {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: absolute;
+     width: 2em;
+     height: 2em;
+     overflow: hidden;
+     top: 0;
+     right: 0;
+     background-color: #C65A2F;
+     border-radius: 0 4px 0 32px;
+     cursor: pointer;
+     transition: transform 0.3s ease;
+ }
+
+ .go-corner:hover {
+     transform: scale(1.15);
+ }
+
+ .go-corner:active {
+     background-color: #005A53;
+ }
+
+ .go-arrow {
+     margin-top: -4px;
+     margin-right: -4px;
+     color: white;
+     font-family: courier, sans;
+ }
+
+ .card {
+     position: relative;
+     max-width: 220px;
+     padding: 2px;
+     border-radius: 10px;
+     margin: 12px;
+     text-decoration: none;
+     background-color: #c57f51a6;
+     cursor: pointer;
+     overflow: hidden;
+     transition: transform 0.3s ease;
+ }
+
+ .card:hover {
+     transform: translateY(-5px);
+ }
+
+ .small-desc {
+     opacity: 0;
+     max-height: 0;
+     overflow: hidden;
+     transition: all 0.4s ease;
+     position: relative;
+     z-index: 2;
+     text-align: center;
+     font-size: 0.95em;
+     color: #262626;
+ }
+
+ .card:before {
+     content: '';
+     position: absolute;
+     z-index: -1;
+     top: -16px;
+     right: -16px;
+     background-color: #71ab3eb4;
+     height: 32px;
+     width: 32px;
+     border-radius: 32px;
+     transform: scale(1);
+     transform-origin: 50% 50%;
+     transition: transform 0.35s ease-out;
+ }
+
+
+ /* só muda se o card tiver show-text */
+ .card.show-text:hover:before {
+     transform: scale(28);
+ }
+
+ .card.show-text.go-corner:before {
+     background: #005A53;
+ }
+
+ .card.show-text:hover .card-title {
+     text-align: center;
+     font-weight: 700;
+     font-size: 1.2em;
+     margin-bottom: 0.5em;
+     color: #ffffff;
+ }
+
+
+ .card.show-text .small-desc {
+     opacity: 1;
+     max-height: 200px;
+     margin-top: 10px;
+     padding: 1em;
+ }
+
+ .go-corner {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: absolute;
+     width: 2em;
+     height: 2em;
+     top: 0;
+     right: 0;
+     background: linear-gradient(135deg, #F5864F, #C57F51);
+     border-radius: 0 4px 0 32px;
+     cursor: pointer;
+     transition: transform 0.3s ease;
+ }
+
+ .go-corner:hover {
+     transform: scale(1.15);
+ }
+
+ .go-corner:active {
+     background: #005A53;
+ }
+
+ .go-corner::before {
+     background: #005A53;
+ }
+
+ .go-arrow {
+     color: white;
+     font-family: courier, sans;
+     margin-top: -2px;
+     margin-right: -2px;
  }
 
  /* ====================
    TÍTULO DA SEÇÃO
 ==================== */
- t .titleMapa {
+
+
+ .titleMapa {
      font-family: "Rammetto One", sans-serif;
      font-size: 28px;
      text-align: center;
@@ -550,44 +686,74 @@
      margin-bottom: 40px;
  }
 
- /* RESPONSIVO */
- @media (max-width: 768px) {
-     .BotoesValores {
-         gap: 15px;
-     }
+ .loader {
+     width: 44.8px;
+     height: 44.8px;
+     position: relative;
+     transform: rotate(45deg);
+ }
 
-     .BotoesValores button {
-         width: 200px;
-         height: 60px;
-         font-size: 16px;
-     }
+ .loader:before,
+ .loader:after {
+     content: "";
+     position: absolute;
+     inset: 0;
+     border-radius: 50% 50% 0 50%;
+     background: #0000;
+     background-image: radial-gradient(circle 11.2px at 50% 50%, #0000 94%, #ff4747);
+ }
 
-     .info-box {
-         width: 95%;
-         padding: 15px 20px;
-     }
+ .loader:after {
+     animation: pulse-ytk0dhmd 1s infinite;
+     transform: perspective(336px) translateZ(0px);
+ }
 
-     .titleMapa {
-         font-size: 24px;
+ @keyframes pulse-ytk0dhmd {
+     to {
+         transform: perspective(336px) translateZ(168px);
+         opacity: 0;
      }
  }
 
 
-
- .BotoesHome a:hover {
-     background-color: #fda176 !important;
-     z-index: 11 !important;
+ .info-box ul {
+     list-style: none;
+     padding-left: 0;
+     margin: 0;
+     color: #ffffff;
+     font-size: 16px;
+     line-height: 1.8;
+     text-align: left;
+     display: grid;
+     gap: 0.5em;
  }
 
- .mapa {
-     display: flex;
-     justify-content: center;
+ .info-box.show {
+     display: block;
+ }
+
+ #info-box {
+     display: none;
+     background: #71AB3E;
+     color: white;
+     padding: 0.6em 1em;
+     border-radius: 0.5em;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+     width: 200px;
+     text-align: center;
+     font-size: 0.9rem;
+     z-index: 999;
+ }
+
+ #info-box.show {
+     display: block;
  }
 
  .titleMapa {
      text-align: center;
      width: 100%;
      font-size: 2vw;
+     margin-top: 100px;
      color: #033a03;
      font-family: "Rammetto One", sans-serif;
  }
@@ -595,9 +761,63 @@
 
  .container-mapa {
      display: flex;
-     flex-direction: row;
-     position: relative;
+     justify-content: center;
  }
+
+ .modal {
+     display: none;
+     /* escondido por padrão */
+     position: fixed;
+     /* fixa na tela */
+     z-index: 1000;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     overflow: auto;
+     /* scroll se necessário */
+     background-color: rgba(0, 0, 0, 0.5);
+     /* overlay escuro */
+ }
+
+ .modal-content {
+     background-color: #C57F51;
+     margin: 10% auto;
+     /* centralizado vertical/horizontal */
+     padding: 1em 2em;
+     border-radius: 10px;
+     width: 300px;
+     color: white;
+     text-align: center;
+ }
+
+ #modal-close {
+     float: right;
+     font-size: 1.5rem;
+     cursor: pointer;
+ }
+
+ #botao-estado {
+     z-index: 1000;
+ }
+
+ .map-city__sign {
+     background-color: #00c080;
+     border: 0.15em solid #fff;
+     color: #fff;
+     border-radius: 0.3rem;
+     padding: 0.4em 0.6em;
+     display: inline-flex;
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+
+ .map-city__sign.disabled {
+     background-color: #888;
+     cursor: default;
+ }
+
 
  /* 🌎 MAPA DO BRASIL — CORES DE HOVER (PALETA GETPET) */
 
