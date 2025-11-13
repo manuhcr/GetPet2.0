@@ -1,29 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<div class="navbar-container">
+  <nav class="navbar">
+    <a class="nav-logo" href="./index.html">
+      <img src="./Img/get pet 1.png" alt="Logo do site" />
+    </a>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="Stylesheet" href="./CSS/navbar.css">
-</head>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./adestramento.html">Adestramento</a>
+      <a href="./veterinarios.html">Veterinário</a>
+      <a href="./quiz.html">Quiz</a>
+      <a href="./produtos.html">Produtos</a>
+      <a href="./adocao.html">Adotar</a>
+    </div>
 
-<body>
-  <div class="navbar-container">
-    <nav class="navbar">
-      <a class="nav-logo" href="./index.html"><img src="./Img/get pet 1.png" alt="Logo do site" /></a>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
-        <a href="./adestramento.html">Adestramento</a>
-        <a href="./veterinarios.html">Veterinário</a>
-        <a href="./quiz.html">Quiz</a>
-        <a href="./produtos.html">Produtos</a>
-        <a href="./adocao.html">Adotar</a>
-      </div>
-    </nav>
-  </div>
+    <!-- Botão do menu mobile -->
+    <button class="menu-toggle" aria-label="Abrir menu">
+      ☰
+    </button>
+  </nav>
+
+  <!-- Menu lateral (aside) -->
+  <aside class="mobile-menu">
+    <button class="close-menu" aria-label="Fechar menu">×</button>
+    <div class="mobile-links">
+      <a href="./index.html">Home</a>
+      <a href="./adestramento.html">Adestramento</a>
+      <a href="./veterinarios.html">Veterinário</a>
+      <a href="./quiz.html">Quiz</a>
+      <a href="./produtos.html">Produtos</a>
+      <a href="./adocao.html">Adotar</a>
+    </div>
+  </aside>
+</div>
+
   <script src="./JS/navbar.js"></script>
-</body>
-
-</html>
