@@ -501,40 +501,6 @@
          color: #ffffff;
      }
 
-     */
-
-     /* Seta */
-     .go-corner {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         position: absolute;
-         width: 2em;
-         height: 2em;
-         overflow: hidden;
-         top: 0;
-         right: 0;
-         background-color: #C65A2F;
-         border-radius: 0 4px 0 32px;
-         cursor: pointer;
-         transition: transform 0.3s ease;
-     }
-
-     .go-corner:hover {
-         transform: scale(1.15);
-     }
-
-     .go-corner:active {
-         background-color: #005A53;
-     }
-
-     .go-arrow {
-         margin-top: -4px;
-         margin-right: -4px;
-         color: white;
-         font-family: courier, sans;
-     }
-
      .card {
          position: relative;
          max-width: 220px;
@@ -605,49 +571,58 @@
          padding: 1em;
      }
 
+     /* Seta */
      .go-corner {
          display: flex;
          align-items: center;
          justify-content: center;
          position: absolute;
-         width: 2em;
-         height: 2em;
+         width: 2.5em;
+         height: 1.3em;
+         overflow: hidden;
          top: 0;
          right: 0;
-         background: linear-gradient(135deg, #F5864F, #C57F51);
-         border-radius: 0 4px 0 32px;
+         background-color: #C65A2F;
+         border-radius: 10px;
          cursor: pointer;
          transition: transform 0.3s ease;
      }
 
-     .go-corner:active {
-         background: #005A53;
+     .go-corner:hover {
+         transform: scale(1.1);
      }
 
-     .go-corner::before {
-         background: #005A53;
+     .go-corner:active {
+         background-color: #C65A2F;
+     }
+
+     .go-arrow {
+         margin-top: -10px;
+         margin-right: -6px;
+         color: white;
+         font-family: courier, sans;
      }
 
      button {
          color: white;
          font-family: courier, sans;
          margin-top: -2px;
-         margin-right: -2px;
+         margin-right: 6px;
          --primary-color: maroon;
          --secondary-color: #fff;
-         --hover-color: #111;
-         --arrow-width: 8px;
-         --arrow-stroke: 4px;
+         --hover-color: #f5824d;
+         --arrow-width: 14px;
+         --arrow-stroke: 3px;
          box-sizing: border-box;
          border: 0;
-         border-radius: 10px;
+         border-radius: 2px;
          color: var(--secondary-color);
          padding: 1em;
          background: var(--primary-color);
          display: flex;
          transition: 0.2s background;
          align-items: center;
-         gap: 0.6em;
+         gap: 2em;
          font-weight: bold;
      }
 
@@ -658,8 +633,8 @@
      }
 
      button .arrow {
-         margin-top: 1px;
-         width: var(--arrow-width);
+         margin-top: 12px;
+         width: 12px;
          background: var(--primary-color);
          height: var(--arrow-stroke);
          position: relative;
@@ -759,27 +734,59 @@
      display: none;
      /* escondido por padrão */
      position: fixed;
-     /* fixa na tela */
      z-index: 1000;
      left: 0;
      top: 0;
      width: 100%;
      height: 100%;
      overflow: auto;
-     /* scroll se necessário */
      background-color: rgba(0, 0, 0, 0.5);
-     /* overlay escuro */
+     opacity: 0;
+     transition: opacity 0.4s ease-in-out;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .modal.show {
+     display: flex;
+     opacity: 1;
  }
 
  .modal-content {
-     background-color: #C57F51;
-     margin: 10% auto;
-     /* centralizado vertical/horizontal */
+     background-color: #e3e9e25d;
+     backdrop-filter: blur(6px);
+     margin: auto;
      padding: 1em 2em;
      border-radius: 10px;
-     width: 300px;
+     border: 1px solid #005A53;
+     width: 400px;
      color: white;
      text-align: center;
+     transform: translateY(-20px);
+     /* sobe levemente */
+     transition: all 0.4s ease-in-out;
+ }
+
+ .modal.show .modal-content {
+     transform: translateY(0);
+     /* anima de cima pra posição final */
+ }
+
+ #modal-endereco {
+     padding: 10px;
+ }
+
+ .endereços {
+     list-style: none;
+     font-family: "Rammetto One", sans-serif;
+     text-align: center;
+     font-weight: 200;
+     color: #eefff9;
+ }
+
+ #modal-estado-nome {
+     font-family: "Rammetto One", sans-serif;
+     font-weight: 200;
  }
 
  #modal-close {
@@ -789,7 +796,7 @@
  }
 
  #botao-estado {
-     z-index: 1000;
+     z-index: 999;
  }
 
  .map-city__sign {
@@ -886,12 +893,72 @@
      transition: fill 0.3s ease-in-out;
  }
 
- /* Transição suave pra todos */
- path {
-     transition: fill 0.3s ease-in-out;
-     stroke: #fff;
-     fill: #ebffe06b;
+ #map-wrapper {
+     width: 100%;
+     max-width: 1000px;
+     margin: auto;
+     display: block;
+     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
  }
+
+ /* Estados padrão */
+ #wrapper path {
+     fill: #a1ce9bd8;
+     stroke: #A9B7C6;
+     stroke-width: 1.4;
+     transition: .25s ease;
+     cursor: pointer;
+ }
+
+ /* Hover suave */
+ #wrapper path:hover {
+     stroke: #2d707c;
+     transform: translateY(-2px);
+ }
+
+ #btn-estado {
+     position: absolute;
+     padding: 10px 18px;
+     background: #67A6FF;
+     color: white;
+     border-radius: 30px;
+     border: none;
+     font-weight: 600;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+     cursor: pointer;
+     display: none;
+     transition: .25s;
+ }
+
+ #btn-estado:hover {
+     background: #2D4C7C;
+ }
+
+ .capital-dot {
+     r: 4;
+     fill: #FF7CA3;
+     filter: drop-shadow(0 0 4px rgba(255, 0, 128, .5));
+     animation: pulse 2s infinite;
+ }
+
+ @keyframes pulse {
+     0% {
+         r: 4;
+         opacity: .6;
+     }
+
+     50% {
+         r: 7;
+         opacity: 1;
+     }
+
+     100% {
+         r: 4;
+         opacity: .6;
+     }
+ }
+
+
 
  .getpet-cuida {
      box-shadow: rgba(3, 60, 70, 0.25) 0px 0.0625em 0.0625em, rgba(9, 0, 43, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
