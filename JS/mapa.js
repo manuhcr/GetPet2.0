@@ -123,7 +123,7 @@ const estadosMap = {
   MT: "Mato_Grosso_BR",
   MS: "Mato_Grosso_do_Sul_BR",
   MG: "Minas_Gerais_BR",
-  PA: "Para_BR",
+  PA: "Pará_BR",
   PB: "Paraíba_BR",
   PR: "Paraná_BR",
   PE: "Pernambuco_BR",
@@ -156,10 +156,14 @@ for (const sigla in estadosMap) {
   idParaSigla[id] = sigla;
 }
 
+const container = document.getElementById('container-mapa');
+
+// Mostrar botão
 function mostrarBotao(idDoEstado) {
-  botaoEstado.style.display = 'block';
-const id = idDoEstado;  // Pega a sigla do id completo 
-  const enderecos = filiais[idDoEstado];  // Busca os endereços
+    const enderecos = filiais[idDoEstado];
+    const id = idDoEstado;  // Pega a sigla do id completo 
+    botaoEstado.style.display = 'block';
+
   if (enderecos && enderecos.length > 0) {
     botaoTexto.getBoundingClientRect()
     botaoTexto.textContent = `GetPet ${id
@@ -168,58 +172,67 @@ const id = idDoEstado;  // Pega a sigla do id completo
     botaoTexto.classList.remove('disabled');
 
   botaoTexto.onclick = () => {
-    modalEstadoNome.textContent = id.replace("_BR", " ").replace(/_/g, "");
+    modalEstadoNome.textContent = id.replace("_BR", " ").replace(/_/g, " ");
     modalEndereco.innerHTML = enderecos.map(e => `<li class="endereços">${e}</li>`).join("");
 
     // Use a função openModal ao invés de mexer no display direto
     openModal();
 };
   } else {
-    botaoTexto.textContent = "Não temos filial";
+    botaoTexto.textContent = `Não temos filial no ${id.replace("_BR", " ").replace(/_/g, " ")}`;
     botaoTexto.classList.add('disabled');
     botaoTexto.onclick = null;
   }
 }
-mapaSvg.querySelectorAll('path').forEach(path => {
-  path.addEventListener('click', (e) => {
-    const id = e.target.id;            // ex: "Pernambuco_BR"
-    const sigla = idParaSigla[id];     // ex: "PE"
-    mostrarBotao(id, sigla);
-  });
+
+function animarBotao() {
+    botaoEstado.classList.remove("show");
+
+    // aqui é o segredo: força reset DA ANIMAÇÃO
+    botaoEstado.style.animation = 'none';
+    botaoEstado.offsetHeight; // força reflow
+    botaoEstado.style.animation = null;
+
+    botaoEstado.classList.add("show");
+}
+
+
+function posicionarBotaoSigla(textSiglaEl) {
+    if (!textSiglaEl) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const siglaRect = textSiglaEl.getBoundingClientRect();
+    const botaoRect = botaoEstado.getBoundingClientRect();
+
+    const posX = siglaRect.left - containerRect.left + (siglaRect.width / 2) - (botaoRect.width / 2);
+    const posY = siglaRect.top - containerRect.top + siglaRect.height + 5; // sempre abaixo da sigla
+
+    botaoEstado.style.left = `${posX}px`;
+    botaoEstado.style.top = `${posY}px`;
+    botaoEstado.style.position = "absolute"
+    animarBotao()
+}
+
+// Eventos de click no mapa
+mapaSvg.querySelectorAll('path, text.sigla').forEach(el => {
+    el.addEventListener('click', (e) => {
+        const id = e.target.id || estadosMap[e.target.textContent];
+        const sigla = idParaSigla[id] || e.target.textContent;
+        mostrarBotao(id, sigla);
+        posicionarBotaoSigla(e.target); // usa a posição da sigla
+    });
 });
 
-
-mapaSvg.querySelectorAll('text.sigla').forEach(text => {
-  text.addEventListener('click', (e) => {
-    const sigla = e.target.textContent;
-    const id = estadosMap[sigla];       // mapeia para "Pernambuco_BR"
-    mostrarBotao(id, e.target);
-  });
-});
-
+// Modal
 function openModal() {
-    // 1. Torna o modal visível imediatamente
     modal.style.display = 'flex';
-
-    // 2. Dá um timeout mínimo para o browser registrar o display
-    setTimeout(() => {
-        modal.classList.add('show'); // inicia fade in
-    }, 10);
+    setTimeout(() => modal.classList.add('show'), 10);
 }
 
-// Fechar modal
 function closeModal() {
-    modal.classList.remove('show'); // inicia fade out
-    setTimeout(() => {
-        modal.style.display = 'none'; // esconde de fato depois da transição
-    }, 400); // tempo igual ao transition
+    modal.classList.remove('show');
+    setTimeout(() => modal.style.display = 'none', 400);
 }
 
-
-// Evento do botão de fechar
 modalClose.addEventListener('click', closeModal);
-
-// Fecha clicando fora do conteúdo
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
