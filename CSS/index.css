@@ -14,11 +14,6 @@ body {
      /* rolagem suave */
  }
 
- section {
-     scroll-margin-top: 70px;
-     /* altura do menu fixo */
- }
-
  #conteudo {
      flex-grow: 2;
      /* O conteúdo cresce para ocupar o espaço restante */
@@ -1188,7 +1183,7 @@ body {
 /* Seção de Doação */
 
 .secao-doacao {
-    margin-top: 50px;
+    margin-top: 150px;
     width: 100%;
     min-height: 50vh;
     display: flex;
@@ -1402,4 +1397,98 @@ body {
  }
 
  /* _________________________________________________ */
- /* Scroll */
+ /* Responsividade */
+
+ /* ________ Tablet ____________ */
+@media (max-width: 1024px) {
+  .BannerConteiner {
+    height: 80vh;
+  }
+
+  .TextoBanner {
+    left: 8%;
+    max-width: 60%;
+  }
+
+  .TextoBanner h2 {
+    font-size: 5vw;
+  }
+
+  .TextoBanner p {
+    font-size: 2.2vw;
+  }
+
+  .categoriashome {
+    gap: 60px;
+    top: calc(68vh - 0px);
+  }
+  .bolinha {
+    width: 100px;
+    height: 100px;
+  }
+  .categ-dropdown {
+    margin-top: 0;
+  }
+
+   .getpet-cuida .dados {
+     flex: 2 1 250px;
+     display: flex;
+     justify-content: space-evenly;
+     flex-wrap: wrap;
+     gap: 3vw;
+ }
+
+  .getpet-cuida .dados .card {
+     border-radius: 15px;
+ }
+}
+
+/* ________ Celular _______ */
+@media (max-width: 768px) {
+  .BannerConteiner {
+    height: 70vh;
+  }
+
+  .TextoBanner {
+    left: 5%;
+    top: 60%;
+    transform: translateY(-50%);
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .TextoBanner h2 {
+    font-size: 6vw;
+    margin-bottom: 2vw;
+  }
+
+  .TextoBanner p {
+    font-size: 3.5vw;
+  }
+  .categoriashome {
+    gap: 40px;
+    top: calc(60vh - 0px);
+  }
+
+  .bolinha {
+    width: 80px;
+    height: 80px;
+  }
+
+  .categ-dropdown {
+    margin-top: 0;
+  }
+
+   .getpet-cuida .dados {
+     flex: 2 2 250px;
+     display: flex;
+     justify-content: space-evenly;
+     flex-wrap: wrap;
+     gap: vw;
+ }
+
+  .getpet-cuida .dados .card {
+     border-radius: 15px;
+ }
+
+}

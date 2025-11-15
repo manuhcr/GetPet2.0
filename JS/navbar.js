@@ -29,11 +29,15 @@ fetch("./navbar.html")
 
     toggle.addEventListener("click", () => {
       menu.classList.add("active");
+       toggle.style.display = "none"; //faz o icone do menu desaparecer
       document.body.style.overflow = "hidden"; // evita scroll do fundo
+     
+     
     });
 
     close.addEventListener("click", () => {
       menu.classList.remove("active");
+      toggle.style.display = ""; //mostra o icone novamente
       document.body.style.overflow = "";
     });
 
@@ -41,7 +45,17 @@ fetch("./navbar.html")
     document.querySelectorAll(".mobile-links a").forEach(link => {
       link.addEventListener("click", () => {
         menu.classList.remove("active");
+        toggle.style.display = ""; //mostra o icone novamente
         document.body.style.overflow = "";
       });
     });
+
+    document.addEventListener("click", (e) => {
+      const clicarFora = !menu.contains(e.target) && !toggle.contains(e.target);
+      if(menu.classList.contains("active") && clicarFora) {
+        toggle.style.display = ""; //mostra o icone novamente
+        menu.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    })
   });

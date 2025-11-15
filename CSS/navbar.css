@@ -14,7 +14,6 @@ body {
   unicode-bidi: isolate;
 }
 
-/* ==== BASE DO NAVBAR (mantém o que já tinha) ==== */
 .navbar-container {
   position: fixed;
   top: 0;
@@ -74,7 +73,7 @@ nav.marrom {
   width: 100%;
 }
 
-/* ==== BOTÃO HAMBÚRGUER ==== */
+/*  BOTÃO HAMBÚRGUER  */
 .menu-toggle {
   display: none; /* escondido no desktop */
   background: none;
@@ -85,7 +84,7 @@ nav.marrom {
   z-index: 1100;
 }
 
-/* ==== MENU LATERAL (ASIDE) ==== */
+/*  MENU LATERAL (ASIDE)  */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -147,7 +146,7 @@ nav.marrom {
    margin-right: 50px;
   width: 70%;
 }
-/* ==== RESPONSIVIDADE ==== */
+/*  RESPONSIVIDADE  */
 @media (max-width: 1024px) {
   .nav-links {
     display: none; /* esconde links normais */
