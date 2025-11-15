@@ -31,6 +31,36 @@
 
     <div id="lista-produtos" class="produtos-container"></div>
 
+    <!-- Carrinho lateral -->
+    <aside id="carrinho">
+        <div id="carrinho-itens"></div>
+        <div class="carrinho-footer">
+
+            <div class="linha">
+                <span>Subtotal:</span>
+                <span id="carrinho-subtotal">R$ 0,00</span>
+            </div>
+
+            <div class="cupom-area">
+                <input type="text" id="cupom-input" placeholder="Código de cupom">
+                <button id="aplicar-cupom">Aplicar</button>
+            </div>
+
+            <div class="linha">
+                <span>Desconto:</span>
+                <span id="carrinho-desconto">R$ 0,00</span>
+            </div>
+
+            <div class="linha total-final">
+                <strong>Total:</strong>
+                <strong id="carrinho-total">R$ 0,00</strong>
+            </div>
+
+            <button id="finalizar-compra">Finalizar Compra</button>
+        </div>
+    </aside>
+
+
     <script src="./JS/navbar.js"></script>
     <script src="./JS/cardProdutos.js"></script>
 

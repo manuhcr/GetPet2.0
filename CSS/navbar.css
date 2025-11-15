@@ -146,6 +146,25 @@ nav.marrom {
    margin-right: 50px;
   width: 70%;
 }
+
+/* container do carrinho + hamburger */
+.container_carr {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* estilo do ícone do carrinho */
+.cart-icon {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.15);
+}
 /*  RESPONSIVIDADE  */
 @media (max-width: 1024px) {
   .nav-links {
@@ -154,5 +173,13 @@ nav.marrom {
 
   .menu-toggle {
     display: block; /* mostra botão hamburguer */
+  }
+
+  .container_carr {
+    display: flex;
+  }
+
+  .cart-icon {
+    font-size: 1.8rem;
   }
 }

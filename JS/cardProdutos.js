@@ -17,26 +17,7 @@ function criarCard(prod) {
                 <span class="preco-antigo">${prod.precoAntigo}</span>
                 <span class="preco-novo">${prod.precoNovo}</span>
             </div>
-            <div class="detalhes-prod">
-                <p class="desc-prod">${prod.descricao}</p>
-                <div class="tabela-prod">
-                    <div class="linha">
-                        <span class="titulo">Categoria:</span>
-                        <span class="valor">${prod.categoria}</span>
-                    </div>
-                    <div class="linha">
-                        <span class="titulo">Porte:</span>
-                        <span class="valor">${prod.porte}</span>
-                    </div>
-                    ${prod.subcategoria ? `
-                        <div class="linha">
-                            <span class="titulo">Subcategoria:</span>
-                            <span class="valor">${prod.subcategoria}</span>
-                        </div>
-                    ` : ''}
-                </div>
-            </div>
-            <button class="btn-prod">Ver detalhes</button>
+            <button class="btn-prod">Comprar</button>
         </div>
     `;
     return card;
@@ -166,4 +147,152 @@ function exibirMensagemSemProduto() {
 
 
 }
+// _______________________________________________
+// Carrinho
+
+let carrinho = [];
+let descontoAplicado = 0;
+
+const carrinhoAside = document.getElementById("carrinho");
+const carrinhoItens = document.getElementById("carrinho-itens");
+const campoSubtotal = document.getElementById("carrinho-subtotal");
+const campoDesconto = document.getElementById("carrinho-desconto");
+const campoTotal = document.getElementById("carrinho-total");
+const cupomInput = document.getElementById("cupom-input");
+
+// Abrir carrinho
+function abrirCarrinho() {
+    carrinhoAside.classList.add("aberto");
+}
+
+// Fechar carrinho
+function fecharCarrinho() {
+    carrinhoAside.classList.remove("aberto");
+
+}
+
+// Fechar carrinho ao clicar fora
+document.addEventListener("click", (e) => {
+    // Só se o carrinho estiver aberto
+    if (carrinhoAside.classList.contains("aberto")) {
+        // Se o clique não foi dentro do carrinho nem no botão de produto
+        if (!carrinhoAside.contains(e.target) && !e.target.closest(".btn-prod")) {
+            fecharCarrinho();
+        }
+    }
+});
+
+
+// Adicionar produto
+function adicionarAoCarrinho(prod) {
+    let existente = carrinho.find(item => item.id === prod.id);
+
+    if (existente) {
+        existente.qtd++;
+    } else {
+        carrinho.push({
+            id: prod.id,
+            titulo: prod.titulo,
+            preco: prod.precoNovo,
+            imagem: prod.imagem,
+            qtd: 1
+        });
+    }
+
+    atualizarCarrinho();
+    abrirCarrinho();
+}
+
+// Atualizar carrinho
+function atualizarCarrinho() {
+    carrinhoItens.innerHTML = "";
+    let subtotal = 0;
+
+    carrinho.forEach(item => {
+        const precoNum = parseFloat(item.preco.replace("R$", "").replace(",", "."));
+        subtotal += precoNum * item.qtd;
+
+        const div = document.createElement("div");
+        div.classList.add("item-carrinho");
+
+        div.innerHTML = `
+            <img src="${item.imagem}">
+            <div>
+                <p>${item.titulo}</p>
+                <p>${item.preco}</p>
+
+                <div class="qtd-controls">
+                    <button class="menos">-</button>
+                    <span>${item.qtd}</span>
+                    <button class="mais">+</button>
+                </div>
+            </div>
+
+            <span class="remove-item">🗑</span>
+        `;
+
+        // Eventos
+        div.querySelector(".mais").addEventListener("click", () => {
+            item.qtd++;
+            atualizarCarrinho();
+        });
+
+        div.querySelector(".menos").addEventListener("click", () => {
+            if (item.qtd > 1) item.qtd--;
+            else carrinho = carrinho.filter(i => i.id !== item.id);
+            atualizarCarrinho();
+        });
+
+        div.querySelector(".remove-item").addEventListener("click", () => {
+            carrinho = carrinho.filter(i => i.id !== item.id);
+            atualizarCarrinho();
+        });
+
+        carrinhoItens.appendChild(div);
+    });
+
+    // Exibição
+    campoSubtotal.textContent = "R$ " + subtotal.toFixed(2).replace(".", ",");
+
+    let descontoFinal = subtotal * descontoAplicado;
+    campoDesconto.textContent = "R$ " + descontoFinal.toFixed(2).replace(".", ",");
+
+    let totalFinal = subtotal - descontoFinal;
+    campoTotal.textContent = "R$ " + totalFinal.toFixed(2).replace(".", ",");
+}
+
+// Aplicar cupom
+document.getElementById("aplicar-cupom").addEventListener("click", () => {
+    const cupom = cupomInput.value.trim().toUpperCase();
+
+    if (cupom === "PET10") {
+        descontoAplicado = 0.10;
+    } else {
+        descontoAplicado = 0;
+        alert("Cupom inválido!");
+    }
+
+    atualizarCarrinho();
+});
+
+// Detectar clique no botão Comprar dentro dos cards
+document.addEventListener("click", (e) => {
+
+    // Garante que clique em spans ou textos dentro do botão ainda conte
+    const btn = e.target.closest(".btn-prod");
+    if (!btn) return;
+
+    // Encontra o card do produto
+    const card = btn.closest(".prod-card");
+
+    const prod = {
+        id: card.querySelector(".tit-prod").textContent,
+        titulo: card.querySelector(".tit-prod").textContent,
+        precoNovo: card.querySelector(".preco-novo").textContent,
+        imagem: card.querySelector(".img-prod").src
+    };
+
+    adicionarAoCarrinho(prod);
+});
+
 
