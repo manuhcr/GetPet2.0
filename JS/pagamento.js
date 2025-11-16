@@ -1,7 +1,7 @@
 /* ------------ MODAL ------------ */
 
 const abrirModalBtn = document.getElementById('finalizar-compra');
-const fecharModal = document.getElementById('fecharModal');
+const fechar = document.getElementById('fecharModal');
 const modal = document.getElementById('modal');
 
 const step1 = document.getElementById('step1');
@@ -12,7 +12,7 @@ abrirModalBtn.addEventListener('click', () => {
     modal.style.display = 'flex';
 });
 
-fecharModal.addEventListener('click', () => {
+fechar.addEventListener('click', () => {
     modal.style.display = 'none';
     resetSteps();
 });
