@@ -2,24 +2,24 @@
 
 const abrirModalBtn = document.getElementById('finalizar-compra');
 const fechar = document.getElementById('fecharModal');
-const modal = document.getElementById('modal');
+const modalPag = document.getElementById('modal');
 
-const step1 = document.getElementById('step1');
-const step2 = document.getElementById('step2');
+const passo1 = document.getElementById('step1');
+const passo2 = document.getElementById('step2');
 const voltar = document.getElementById('voltarStep1');
 
 abrirModalBtn.addEventListener('click', () => {
-    modal.style.display = 'flex';
+    modalPag.style.display = 'flex';
 });
 
 fechar.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modalPag.style.display = 'none';
     resetSteps();
 });
 
 function resetSteps(){
-    step2.classList.remove('active');
-    step1.classList.add('active');
+    passo2.classList.remove('active');
+    passo1.classList.add('active');
 }
 
 
@@ -47,15 +47,15 @@ options.forEach(option => {
         document.getElementById("form-" + method).style.display = "flex";
 
         // Vai para o step 2
-        step1.classList.remove('active');
-        step2.classList.add('active');
+        passo1.classList.remove('active');
+        passo2.classList.add('active');
     });
 });
 
 // Botão de voltar do step2 para step1
 voltar.addEventListener('click', () => {
-    step2.classList.remove('active');
-    step1.classList.add('active');
+    passo2.classList.remove('active');
+    passo2.classList.add('active');
 });
 
 /* ------------ CARTÃO: ELEMENTOS ------------ */
