@@ -261,20 +261,49 @@ function atualizarCarrinho() {
     campoTotal.textContent = "R$ " + totalFinal.toFixed(2).replace(".", ",");
 }
 
+// // Aplicar cupom
+// document.getElementById("aplicar-cupom").addEventListener("click", () => {
+//     const cupom = cupomInput.value.trim().toUpperCase();
+
+  
+// });
 // Aplicar cupom
-document.getElementById("aplicar-cupom").addEventListener("click", () => {
+let aplicarCupom = document.getElementById("aplicar-cupom");
+aplicarCupom.addEventListener("click", () => {
+    const cupomInput = document.getElementById("cupom-input");
     const cupom = cupomInput.value.trim().toUpperCase();
 
-    if (cupom === "PET10") {
+    // Pega cupons do localStorage
+    const cupons = JSON.parse(localStorage.getItem("cuponsDisponiveis")) || [];
+    if (cupom === "PET40" ) {
         descontoAplicado = 0.10;
-    } else {
-        descontoAplicado = 0;
-        alert("Cupom inválido!");
+        alert(`Cupom ${cupom} aplicado!`);
+        atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
+    }   
+    if (cupom === "DOA10") {
+      descontoAplicado = 0.1;
+      alert(`Cupom ${cupom} aplicado!`);
+      atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
+    } 
+    if (cupom === "DOA50") {
+      descontoAplicado = 0.2;
+      alert(`Cupom ${cupom} aplicado!`);
+      atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
+    } if (cupom === "DOA100") {
+      descontoAplicado = 0.3;
+      alert(`Cupom ${cupom} aplicado!`);
+      atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
+    } if (!cupons.includes(cupom)) {
+      descontoAplicado = 0; // garante que o desconto global seja 0
+      alert("Cupom inválido ou não disponível!");
+      atualizarCarrinho(); // atualiza o carrinho
+        return;
     }
 
-    atualizarCarrinho();
+  
+ 
+  
 });
-
 // Detectar clique no botão Comprar dentro dos cards
 document.addEventListener("click", (e) => {
 
@@ -296,3 +325,35 @@ document.addEventListener("click", (e) => {
 });
 
 
+ const abrirModal = document.getElementById('finalizar-compra'); // aqui é seu botão
+  const fecharModal = document.getElementById('fecharModal');
+  const modal = document.getElementById('modal');
+
+  const options = document.querySelectorAll('.payment-option');
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const voltar = document.getElementById('voltarStep1');
+
+  abrirModal.addEventListener('click', () => modal.classList.remove('hidden'));
+  fecharModal.addEventListener('click', () => modal.classList.add('hidden'));
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const method = option.dataset.method;
+
+      // Esconde todos os forms
+      document.querySelectorAll('#step2 form').forEach(f => f.classList.add('hidden'));
+
+      // Mostra o form selecionado
+      document.getElementById('form-' + method).classList.remove('hidden');
+
+      // Passa para o step 2
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+    });
+  });
+
+  voltar.addEventListener('click', () => {
+    step2.classList.add('hidden');
+    step1.classList.remove('hidden');
+  });

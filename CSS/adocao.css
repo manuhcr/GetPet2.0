@@ -105,6 +105,201 @@
    color: white;
  }
 
+ .ficha-button {
+   padding: 10px 8px;
+   margin-top: 10px;
+   border: 1.5px solid #005A53;
+   border-radius: 20px;
+   background-color: transparent;
+   color: #005A53;
+   font-weight: bold;
+   font-size: 11px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   align-self: flex-start;
+ }
+
+ .ficha-button:hover {
+   background-color: #005A53;
+   color: white;
+ }
+
+ .botoes-info {
+   display: flex;
+   gap: 4px;
+ }
+
+ /* FUNDO DO MODAL */
+ .modal-pet {
+   backdrop-filter: blur(6px);
+   display: none;
+   position: fixed;
+   inset: 0;
+   background-color: rgba(0, 0, 0, 0.6);
+   justify-content: center;
+   align-items: center;
+   z-index: 10000;
+   padding: 20px;
+   animation: fadeIn 0.35s ease-in;
+ }
+
+ /* CAIXA DA FICHA */
+ .modal-pet-content {
+   width: 100%;
+   max-width: 700px;
+   height: 600px;
+   background-color: #fffbed;
+   border-radius: 20px;
+   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+   overflow: hidden;
+   position: relative;
+   padding-bottom: 20px;
+   border: 4px solid #3A1F03;
+   animation: popIn 0.45s ease-out;
+ }
+
+ /* BOTÃO FECHAR */
+ .fechar {
+   position: absolute;
+   top: 12px;
+   right: 14px;
+   font-size: 28px;
+   cursor: pointer;
+   color: #F5844E;
+   font-weight: bold;
+   user-select: none;
+   transition: 0.2s;
+ }
+
+ .fechar:hover {
+   transform: scale(1.25);
+   color: #C57F51;
+ }
+
+ /* FOTO */
+ #modalPetImg {
+   display: block;
+   width: 140px;
+   height: 140px;
+   margin: 30px auto 15px;
+   object-fit: cover;
+   border-radius: 50%;
+   border: 5px solid #3A1F03;
+   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+ }
+
+ /* NOME */
+ #modalPetNome {
+   text-align: center;
+   font-size: 26px;
+   font-weight: 700;
+   color: #3A1F03;
+   margin-top: 5px;
+   text-shadow: 1px 1px 0 #fff;
+ }
+
+ /* SELO COMO BADGE FLUTUANTE */
+ .modal-selo {
+   width: 50px;
+   height: 50px;
+   position: absolute;
+   top: 20px;
+   right: calc(50% - 70px);
+   /* ajusta para o canto da foto */
+   z-index: 10;
+   border-radius: 50%;
+   border: 2px solid #fff;
+   background-color: #fff;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+ }
+
+ /* TIPO */
+ .modal-tipo {
+   text-align: center;
+   display: block;
+   font-size: 15px;
+   margin-top: 4px;
+   color: #fff;
+   font-style: italic;
+ }
+
+ /* DESCRIÇÃO */
+ #modalPetTipo {
+   background: #ffffffb7;
+   margin: 22px auto;
+   width: 20%;
+   padding: 12px 15px;
+   border-radius: 12px;
+   border-left: 6px solid #71AB3E;
+   color: #3A1F03;
+   font-size: 15px;
+   line-height: 1.4;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+   font-weight: 500;
+ }
+
+ /* LISTA DE INFORMAÇÕES */
+ .modal-pet-info {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   border-top: 1px solid #3A1F03;
+ }
+
+ .modal-pet-info li {
+   display: flex;
+   justify-content: space-between;
+   padding: 12px 20px;
+   border-bottom: 1px dashed #3A1F03;
+   font-size: 14px;
+   color: #634343;
+   font-weight: 500;
+ }
+
+ .modal-pet-info li strong {
+   color: #3A1F03;
+ }
+
+ /* ANIMAÇÕES */
+ @keyframes fadeIn {
+   from {
+     opacity: 0;
+   }
+
+   to {
+     opacity: 1;
+   }
+ }
+
+ @keyframes popIn {
+   0% {
+     transform: scale(0.85);
+     opacity: 0;
+   }
+
+   100% {
+     transform: scale(1);
+     opacity: 1;
+   }
+ }
+
+ /* RESPONSIVO */
+ @media (max-width: 520px) {
+   .modal-pet-content {
+     padding: 10px;
+   }
+
+   #modalPetImg {
+     width: 120px;
+     height: 120px;
+   }
+
+   .modal-pet-info li {
+     flex-direction: column;
+     align-items: flex-start;
+   }
+ }
+
  footer {
    position: relative;
    z-index: 1000;
@@ -188,7 +383,7 @@
  .subContent p {
    margin-top: 30px;
    text-align: center;
-   color: white;
+   color: #365914;
  }
 
  .subContent h6 {

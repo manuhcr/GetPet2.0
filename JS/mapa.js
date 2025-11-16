@@ -140,8 +140,8 @@ const estadosMap = {
 };
 
 
-const mapaSvg = document.getElementById('wrapper'); //pai que vai guiar o botao
-const botaoEstado = document.getElementById('botao-estado'); //filho guido pelo mapa pai
+const mapaSvg = document.getElementById('wrapper'); 
+const botaoEstado = document.getElementById('botao-estado');
 const botaoTexto = document.getElementById('botao-texto');
 
 // Modal
