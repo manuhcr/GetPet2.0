@@ -242,8 +242,10 @@ function mostrarPergunta() {
 }
 
 // A função atualizarBotoesNavegacao não é mais necessária, removida.
-
+import dispararConfetes from "./confete.js"
 function mostrarResultado() {
+  dispararConfetes();
+  progressEl.style.display = "none";
   quizEl.style.display = "none";
   resultEl.style.display = "block"; // Mudado para 'block' para o layout do resultado
 
@@ -257,6 +259,7 @@ function mostrarResultado() {
 
   // Cria container para imagem + texto lado a lado
   const resultadoTopo = document.createElement("div");
+  resultadoTopo.classList.add("resultAnimal")
   // O estilo 'result' deve ser flex, se não o resultadoTopo precisa ter o estilo do resultado.
   Object.assign(resultadoTopo.style, {
     display: "flex",
@@ -282,7 +285,17 @@ function mostrarResultado() {
   // Cria e adiciona texto
   const textDiv = document.createElement("div");
   textDiv.id = "result-text";
-  textDiv.innerHTML = `<h2>Parabéns! Você deveria ter um ${vencedor}</h2><p>${descrições[vencedor]}</p>`; // Adicionando título ao resultado
+  
+  let animaisCartigoFeminino =  ['Boa Constritora' , 'Píton Bola' , 'Calopsita' , 'Rolinha'];
+  let artigo = "";
+
+  if (animaisCartigoFeminino.includes(vencedor)){
+    artigo = " uma "
+  } else {
+    artigo = " um "
+  }
+ 
+  textDiv.innerHTML = `<h2>De acordo com o nosso quiz,você deveria ter ${artigo} ${vencedor}</h2><p>${descrições[vencedor]}</p>`; // Adicionando título ao resultado
   resultadoTopo.appendChild(textDiv);
 
   // Adiciona o container topo ao resultEl

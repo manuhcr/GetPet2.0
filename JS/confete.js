@@ -18,3 +18,4 @@ function dispararConfetes() {
       origin: { x: 1, y: 0.5 }
     });
   }
+export default dispararConfetes()

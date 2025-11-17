@@ -198,7 +198,9 @@ body {
 .result {
     display: none;
     /* começa escondido */
-    max-width: 400px;
+    max-width: 600px;
+    background-color: #D3D3D3;
+    backdrop-filter: blur(6px);
     margin: 20px auto;
     padding: 20px;
     background: white;
@@ -206,6 +208,11 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     text-align: center;
     animation: fadeIn 0.4s ease forwards;
+}
+
+.resultAnimal {
+ display: flex !important;
+ flex-wrap: nowrap !important;
 }
 
 .result img {
