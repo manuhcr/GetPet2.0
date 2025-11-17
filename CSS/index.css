@@ -262,7 +262,7 @@ section {
 
 .sobre-subtitulo {
     font-size: 1.8vw;
-    color: #033a03;
+    color: #000;
     font-family: "Mukta Vaani", sans-serif;
     font-weight: 700;
     margin-bottom: 2vw;
@@ -978,8 +978,8 @@ text {
 
 /* Estados padrão */
 #wrapper path {
-    fill: #a1ce9bd8;
-    stroke: #A9B7C6;
+    fill: #71AB3E;
+    stroke: #fffbed;
     stroke-width: 1.4;
     transition: .25s ease;
     cursor: pointer;
