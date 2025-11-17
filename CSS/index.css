@@ -244,13 +244,12 @@ section {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 4vw;
     padding: 6vw 4vw;
 
 }
 
 .sobre-texto {
-    flex: 1;
+    flex: 2;
     max-width: 550px;
 }
 
@@ -287,6 +286,7 @@ section {
 .container-mapa svg {
     width: 100%;
     height: auto;
+    margin-top: 70px;
 }
 
 /* ------ RESPONSIVIDADE ------ */
