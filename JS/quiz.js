@@ -282,7 +282,7 @@ function mostrarResultado() {
   // Cria e adiciona texto
   const textDiv = document.createElement("div");
   textDiv.id = "result-text";
-  textDiv.innerHTML = `<h2>Parabéns! Você é um ${vencedor}</h2><p>${descrições[vencedor]}</p>`; // Adicionando título ao resultado
+  textDiv.innerHTML = `<h2>Parabéns! Você deveria ter um ${vencedor}</h2><p>${descrições[vencedor]}</p>`; // Adicionando título ao resultado
   resultadoTopo.appendChild(textDiv);
 
   // Adiciona o container topo ao resultEl

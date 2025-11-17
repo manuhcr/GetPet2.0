@@ -72,23 +72,22 @@ const cardCvvInput = document.getElementById("card-cvv-input");
 /* PREVIEW DO CARTÃO */
 
 // Elementos que mostram a pré-visualização do cartão
-const prevLogo = document.querySelector(".card-logo");
-const prevNumber = document.querySelector(".card-number");
-const prevName = document.querySelector(".card-name");
-const prevExpiry = document.querySelector(".card-expiry");
+const prevLogo = document.querySelector(".logo");
+const prevNumber = document.querySelector(".number");
+const prevName = document.querySelector(".name");
+const prevExpiry = document.querySelector(".date_8264");
 const prevCvv = document.querySelector(".code");
 
 /* ------------ FLIP DO CARTÃO ------------ */
 
-// Quando o usuário foca no CVV, vira o cartão
-cardCvvInput.addEventListener("focus", () => {
-    flipInner.classList.add("flipped");
-});
-// Quando tira o foco, volta para frente
-cardCvvInput.addEventListener("blur", () => {
-    flipInner.classList.remove("flipped");
-});
+/* safe guards */
+function safeAddListener(el, ev, fn) {
+    el && el.addEventListener(ev, fn);
+}
 
+/* flip on focus CVV */
+safeAddListener(cardCvvInput, 'focus', () => { flipInner.classList.add('flipped'); });
+safeAddListener(cardCvvInput, 'blur', () => { flipInner.classList.remove('flipped'); });
 /* ------------ MÁSCARAS E PREVIEW ------------ */
 
 /* Número do cartão */
