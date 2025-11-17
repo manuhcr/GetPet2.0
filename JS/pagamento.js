@@ -4,8 +4,8 @@ const abrirModalBtn = document.getElementById('finalizar-compra');
 const fechar = document.getElementById('fecharModal');
 const modalPag = document.getElementById('modal');
 
-const passo1 = document.getElementById('step1');
-const passo2 = document.getElementById('step2');
+const passoOne = document.getElementById('step1');
+const passoTwo = document.getElementById('step2');
 const voltar = document.getElementById('voltarStep1');
 
 abrirModalBtn.addEventListener('click', () => {
@@ -17,9 +17,9 @@ fechar.addEventListener('click', () => {
     resetSteps();
 });
 
-function resetSteps(){
-    passo2.classList.remove('active');
-    passo1.classList.add('active');
+function resetSteps() {
+    passoOne.classList.remove('active');
+    passoTwo.classList.add('active');
 }
 
 
@@ -96,7 +96,7 @@ cardNumberInput.addEventListener("input", e => {
     // Remove tudo que não é número
     let v = e.target.value.replace(/\D/g, "");
     // Limita a 16 dígitos
-    v = v.substring(0,16);
+    v = v.substring(0, 16);
     // Adiciona espaço a cada 4 dígitos
     v = v.replace(/(\d{4})(?=\d)/g, "$1 ");
 
@@ -116,7 +116,7 @@ cardNameInput.addEventListener("input", e => {
 /* Validade do cartão */
 cardExpiryInput.addEventListener("input", e => {
     let v = e.target.value.replace(/\D/g, "");
-    v = v.substring(0,4);
+    v = v.substring(0, 4);
 
     // Formata MM/AA
     if (v.length >= 3)
@@ -129,7 +129,7 @@ cardExpiryInput.addEventListener("input", e => {
 /* CVV */
 cardCvvInput.addEventListener("input", e => {
     let v = e.target.value.replace(/\D/g, "");
-    v = v.substring(0,4);
+    v = v.substring(0, 4);
     e.target.value = v;
     prevCvv.textContent = v || "CVV";
 });
@@ -166,36 +166,36 @@ const logoElo = `
 </svg>
 `;
 
-function detectCardFlag(n){
+function detectCardFlag(n) {
     // Se o número do cartão começa com 4
-if (/^4/.test(n)) {
-    // Mostra o logo da Visa no cartão
-    prevLogo.innerHTML = logoVisa;
-    return; // Sai da função, porque já encontrou a bandeira
-}
+    if (/^4/.test(n)) {
+        // Mostra o logo da Visa no cartão
+        prevLogo.innerHTML = logoVisa;
+        return; // Sai da função, porque já encontrou a bandeira
+    }
 
-// Se o número do cartão começa com 51, 52, 53, 54 ou 55
-if (/^5[1-5]/.test(n)) {
-    // Mostra o logo do Mastercard no cartão
-    prevLogo.innerHTML = logoMastercard;
-    return;
-}
+    // Se o número do cartão começa com 51, 52, 53, 54 ou 55
+    if (/^5[1-5]/.test(n)) {
+        // Mostra o logo do Mastercard no cartão
+        prevLogo.innerHTML = logoMastercard;
+        return;
+    }
 
-// Se o número do cartão começa com 34 ou 37
-if (/^3[47]/.test(n)) {
-    // Mostra o logo do American Express (Amex) no cartão
-    prevLogo.innerHTML = logoAmex;
-    return;
-}
+    // Se o número do cartão começa com 34 ou 37
+    if (/^3[47]/.test(n)) {
+        // Mostra o logo do American Express (Amex) no cartão
+        prevLogo.innerHTML = logoAmex;
+        return;
+    }
 
-// Se o número do cartão começa com qualquer um desses prefixos específicos do Elo
-if (/^(4011|4312|4389|4514|4576|5041|5067|509|6277|6362)/.test(n)) {
-    // Mostra o logo do Elo no cartão
-    prevLogo.innerHTML = logoElo;
-    return;
-}
+    // Se o número do cartão começa com qualquer um desses prefixos específicos do Elo
+    if (/^(4011|4312|4389|4514|4576|5041|5067|509|6277|6362)/.test(n)) {
+        // Mostra o logo do Elo no cartão
+        prevLogo.innerHTML = logoElo;
+        return;
+    }
 
-// Se nenhum dos anteriores bateu, não mostra nenhum logo
-prevLogo.innerHTML = "";
+    // Se nenhum dos anteriores bateu, não mostra nenhum logo
+    prevLogo.innerHTML = "";
 
 }

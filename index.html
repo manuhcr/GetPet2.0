@@ -452,7 +452,6 @@
                     <div id="estado-modal" class="modal">
                         <div class="modal-content">
                             <span id="modal-close">&times;</span>
-                            <div class="loader"></div>
                             <h2 id="modal-estado-nome">Estado</h2>
                             <ul id="modal-endereco">
                                 <li>Endereço aparecerá aqui</li>
@@ -538,6 +537,7 @@
 
         </div>
 
+
         <div class="ondas">
             <svg id="visual" viewBox="0 0 900 119" preserveAspectRatio="none">
                 <rect x="0" y="0" fill="#71AB3E"></rect>
@@ -562,13 +562,18 @@
         <section class="getpet-cuida">
 
             <div class="conteudo">
+
                 <div class="texto">
-                    <h2>GetPet Cuida</h2>
+                    <h2>Como Cuidamos, Salvamos e Transformamos Vidas</h2>
                 </div>
 
                 <div class="dados">
                     <div class="card">
-                        <p>mais de <strong>1.200</strong> animais resgatados</p>
+                        <div class="tituloCuida">
+                            <h3>Resgate & Acolhimento</h3f>
+                        </div>
+                        <p>Recebemos animais resgatados com amor, cuidado e avaliação inicial para garantir segurança e
+                            bem-estar.</p>
                     </div>
                     <div class="card">
                         <p>mais de <strong>300</strong> adoções realizadas</p>
@@ -633,25 +638,24 @@
                             <a href="#" class="btn-doacao primario">Faça uma Doação</a>
                             <a href="#" class="btn-doacao secundario">Seja um Voluntário</a>
                         </div>
-
                     </div>
                 </div>
-                <div id="doacao-modal" class="modaldoacao">
-                    <div class="modal-content-doacao">
-                        <span id="modal-doar-close">&times;</span>
-                        <div id="modal-body-doar">
-                            <h2 class="modal-doacao">Digite o valor da doação em R$:</h2>
-                            <input class="input-doacao"></input>
-                            <button class="confirmar-doacao">Confirmar</button>
-                        </div>
+            </div>
+            <div id="doacao-modal" class="modaldoacao">
+                <div class="modal-content-doacao">
+                    <span id="modal-doar-close">&times;</span>
+                    <div id="modal-body-doar">
+                        <h2 class="modal-doacao">Digite o valor da doação em R$:</h2>
+                        <input class="input-doacao"></input>
+                        <button class="confirmar-doacao">Confirmar</button>
                     </div>
                 </div>
-                <div id="msg-modal" class="modalmsg">
-                    <div class="modal-content-msg">
-                        <span id="modal-msg-close">&times;</span>
-                        <div id="modal-body-msg">
-                            <p class="mensagem"></p>
-                        </div>
+            </div>
+            <div id="msg-modal" class="modalmsg">
+                <div class="modal-content-msg">
+                    <span id="modal-msg-close">&times;</span>
+                    <div id="modal-body-msg">
+                        <p class="mensagem"></p>
                     </div>
                 </div>
             </div>
@@ -672,6 +676,7 @@
                     </form>
                 </div>
             </div>
+
         </section>
         </section>
     </main>
