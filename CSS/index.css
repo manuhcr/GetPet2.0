@@ -1025,30 +1025,24 @@ text {
 }
 
 .getpet-cuida .dados {
-    flex: 1 1 400px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 2vw;
+    gap: 8vw;
 }
 
 .getpet-cuida .texto {
     font-family: "Rammetto One", sans-serif;
-    flex: 1 1 350px;
+
     text-align: center;
-    color: 000;
+    color: #003121;
+    text-shadow: 1px 1px 4px #4da165;
 }
 
 .getpet-cuida h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 3rem;
     font-weight: 800;
-}
-
-.getpet-cuida p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
 }
 
 
@@ -1058,35 +1052,71 @@ text {
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 1vw;
+    margin-bottom: 1vw;
 }
 
 .getpet-cuida .dados .card {
     background: rgba(255, 255, 255, 0.205);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     border-color: transparent;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 20px;
-    width: 300px;
+    width: 345px;
     text-align: center;
 }
 
 
 .getpet-cuida .dados .card:hover {
-    border: #fcf3e0 2px solid;
+    border: #005A53 3px solid;
     transition: all 0.2s ease-in-out;
-    transform: translateY(-4px);
+    transform: translateY(-1px);
 
+}
+
+.card-icon {
+    color: #e5f7d6;
+    /* cor principal */
+    transition: transform 0.5s, color 0.5s;
+}
+
+/* Hover no card muda o ícone */
+.card:hover .card-icon {
+    transform: scale(1.15);
+    color: #266349;
+    /* cor de destaque ao passar o mouse */
+}
+
+/* Opcional: efeito sutil no card */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .getpet-cuida .card p {
-    font-size: 24px;
+    font-size: 0.98em;
     font-family: "Mukta Vaani", sans-serif;
-    color: #fcf3e0;
+    color: #d3ebbe;
 }
 
-.getpet-cuida .card strong {
-    font-size: 28px;
-    font-family: "Mukta Vaani", sans-serif;
+.getpet-cuida .card h3 {
+    font-size: 1em;
+    font-family: "Rammetto One", sans-serif;
+    color: #334237;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap: 1vw;
+}
+
+.getpet-cuida .card i {
+    color: #c3ee9f;
+
+    margin-top: 0.5em;
+    gap: 1vh;
+    display: flex;
 
 }
 
