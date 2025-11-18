@@ -1081,7 +1081,6 @@ text {
 
 /* Hover no card muda o ícone */
 .card:hover .card-icon {
-    transform: scale(1.15);
     color: #266349;
     /* cor de destaque ao passar o mouse */
 }
@@ -1095,13 +1094,13 @@ text {
 .getpet-cuida .card p {
     font-size: 0.98em;
     font-family: "Mukta Vaani", sans-serif;
-    color: #d3ebbe;
+    color: #ffffff;
 }
 
 .getpet-cuida .card h3 {
     font-size: 1em;
     font-family: "Rammetto One", sans-serif;
-    color: #334237;
+    color: #3a6b3a;
 }
 
 .icon {
