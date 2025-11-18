@@ -167,19 +167,20 @@
      display: flex;
  }
 
- /* From Uiverse.io by Praashoo7 */
  .flip-card {
-     background-color: transparent;
+
      width: 90%;
      height: 200px;
      perspective: 1000px;
      color: white;
+     align-self: anchor-center;
+     display: flex;
  }
 
  .logo {
      position: absolute;
-     top: 6.8em;
-     left: 11.7em;
+     top: 9em;
+     left: 16em;
  }
 
  .chip {
@@ -190,8 +191,14 @@
 
  .contactless {
      position: absolute;
-     top: 3.5em;
-     left: 12.4em;
+     top: 4.2em;
+     left: 18.4em;
+ }
+
+ .heading_8264 {
+     bottom: 4.2em;
+     left: 6.5em;
+     position: relative;
  }
 
  .number {
@@ -199,30 +206,32 @@
      font-weight: bold;
      font-size: 1em;
      left: 1.6em;
+     bottom: 5em;
  }
 
  .valid_thru {
      position: absolute;
      font-weight: bold;
-     font-size: 1em;
-     top: 8.3em;
-     left: 1.6em;
+     font-size: 0.8em;
+     top: 7em;
+     left: 3em;
  }
 
  .date_8264 {
      position: absolute;
      font-weight: bold;
-     font-size: 1em;
-     top: 9em;
-     left: 3.2em;
+     font-size: 0.8em;
+     top: 8.5em;
+     left: 4em;
  }
 
  .name {
      position: absolute;
      font-weight: bold;
      font-size: 1em;
-     top: 4.1em;
-     left: 2em;
+     top: 8.5em;
+     left: 1.5em;
+     text-transform: uppercase;
  }
 
  .strip {
@@ -261,8 +270,9 @@
  .code {
      font-weight: bold;
      text-align: center;
-     margin: .2em;
      color: black;
+     position: relative;
+     top: -22px;
  }
 
  .flip-card-inner {
@@ -274,13 +284,14 @@
      transform-style: preserve-3d;
  }
 
- .flip-card:hover .flip-card-inner {
+ .flip-card-inner.flipped {
      transform: rotateY(180deg);
  }
 
  .flip-card-front,
  .flip-card-back {
      box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+     background: linear-gradient(45deg, #C57F51, #71AB3E);
      position: absolute;
      display: flex;
      flex-direction: column;
@@ -380,6 +391,14 @@
      text-decoration: underline;
      font-size: .9rem;
      align-self: flex-start;
+ }
+
+ #pix-qrcode,
+ #pix-chave {
+     justify-self: center;
+     text-align: center;
+     margin: 10px auto;
+     display: block;
  }
 
 

@@ -17,5 +17,8 @@ function dispararConfetes() {
       ...config,
       origin: { x: 1, y: 0.5 }
     });
+
+  const som = new Audio('./assets/partyblower.mp3'); // coloque o arquivo na pasta do projeto
+  som.play();
+
   }
-export default dispararConfetes()

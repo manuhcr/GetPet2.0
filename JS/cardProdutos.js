@@ -259,6 +259,7 @@ function atualizarCarrinho() {
 
     let totalFinal = subtotal - descontoFinal;
     campoTotal.textContent = "R$ " + totalFinal.toFixed(2).replace(".", ",");
+    adicionarTotalModal(totalFinal);
 }
 
 // // Aplicar cupom
@@ -347,9 +348,7 @@ opcoes.forEach(option => {
         // Mostra o form selecionado
         document.getElementById('form-' + method).classList.remove('hidden');
 
-        // Passa para o step 2
-        step1.classList.add('hidden');
-        step2.classList.remove('hidden');
+      
     });
 });
 

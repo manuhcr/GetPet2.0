@@ -306,9 +306,6 @@ const fichasPets = [
   }
 ];
 
-export default fichasPets;
-
-
 function abreFichaPet(nomePet){
     const pet = fichasPets.find(p => p.nome === nomePet);
     if (!pet) return;

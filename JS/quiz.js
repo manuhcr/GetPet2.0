@@ -241,10 +241,11 @@ function mostrarPergunta() {
   atualizarBolinhas();
 }
 
-// A função atualizarBotoesNavegacao não é mais necessária, removida.
+
 import dispararConfetes from "./confete.js"
+
 function mostrarResultado() {
-  dispararConfetes();
+ dispararConfetes();
   progressEl.style.display = "none";
   quizEl.style.display = "none";
   resultEl.style.display = "block"; // Mudado para 'block' para o layout do resultado
@@ -286,7 +287,7 @@ function mostrarResultado() {
   const textDiv = document.createElement("div");
   textDiv.id = "result-text";
   
-  let animaisCartigoFeminino =  ['Boa Constritora' , 'Píton Bola' , 'Calopsita' , 'Rolinha'];
+  let animaisCartigoFeminino =  ['Boa Constritora' , 'Píton bola' , 'Calopsita' , 'Rolinha'];
   let artigo = "";
 
   if (animaisCartigoFeminino.includes(vencedor)){
@@ -294,13 +295,13 @@ function mostrarResultado() {
   } else {
     artigo = " um "
   }
- 
+
   textDiv.innerHTML = `<h2>De acordo com o nosso quiz,você deveria ter ${artigo} ${vencedor}</h2><p>${descrições[vencedor]}</p>`; // Adicionando título ao resultado
   resultadoTopo.appendChild(textDiv);
 
   // Adiciona o container topo ao resultEl
   resultEl.appendChild(resultadoTopo);
-
+  
   // Cria container para botões (ficará abaixo do resultadoTopo)
   const btnContainer = document.createElement("div");
   btnContainer.className = "result-btn-container";
