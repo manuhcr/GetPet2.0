@@ -244,13 +244,12 @@ section {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 4vw;
     padding: 6vw 4vw;
 
 }
 
 .sobre-texto {
-    flex: 1;
+    flex: 2;
     max-width: 550px;
 }
 
@@ -263,7 +262,7 @@ section {
 
 .sobre-subtitulo {
     font-size: 1.8vw;
-    color: #033a03;
+    color: #000;
     font-family: "Mukta Vaani", sans-serif;
     font-weight: 700;
     margin-bottom: 2vw;
@@ -287,6 +286,7 @@ section {
 .container-mapa svg {
     width: 100%;
     height: auto;
+    margin-top: 70px;
 }
 
 /* ------ RESPONSIVIDADE ------ */
@@ -978,8 +978,8 @@ text {
 
 /* Estados padrão */
 #wrapper path {
-    fill: #a1ce9bd8;
-    stroke: #A9B7C6;
+    fill: #71AB3E;
+    stroke: #fffbed;
     stroke-width: 1.4;
     transition: .25s ease;
     cursor: pointer;

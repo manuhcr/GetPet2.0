@@ -20,7 +20,7 @@ function renderAnimais(lista) {
     card.className = "adocao-card";
     const btnFicha = document.createElement("button");
     btnFicha.classList.add("ficha-button");
-    btnFicha.textContent = "Informações do pet";
+    btnFicha.textContent = "Ficha do pet";
     btnFicha.addEventListener("click", () => abreFichaPet(animal.nome));
     card.innerHTML = `
       <img src="${animal.imagem}" class="adocao-image" alt="Foto de ${animal.nome}">
