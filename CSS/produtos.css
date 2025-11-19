@@ -370,7 +370,7 @@
  }
 
  .payment-form button {
-     background: #4f46e5;
+     background: #3d8f53;
      border: none;
      color: white;
      font-weight: 600;
@@ -380,15 +380,17 @@
  }
 
  .payment-form button:hover {
-     background: #3b3ce0;
+     background: #365914;
  }
 
  .btn-back {
      background: none;
      border: none;
-     color: #4f46e5;
+     color: #fbfff8;
      cursor: pointer;
-     text-decoration: underline;
+     border-radius: 20px;
+     background-color: #005A53;
+     padding: 10px 14px;
      font-size: .9rem;
      align-self: flex-start;
  }

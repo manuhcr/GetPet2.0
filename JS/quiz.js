@@ -242,10 +242,8 @@ function mostrarPergunta() {
 }
 
 
-import dispararConfetes from "./confete.js"
-
 function mostrarResultado() {
- dispararConfetes();
+  dispararConfetes()
   progressEl.style.display = "none";
   quizEl.style.display = "none";
   resultEl.style.display = "block"; // Mudado para 'block' para o layout do resultado

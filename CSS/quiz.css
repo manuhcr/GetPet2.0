@@ -26,16 +26,15 @@ body {
         color: #C57F51;
         /* Cor de texto padrão */
         text-align: center;
-        margin-bottom: -2px;
-        margin-top: -2px;
+        margin-bottom: 2px;
+        margin-top: 20px;
         font-size: 24px;
     }
 
     p {
         color: #F5844E;
-        /* Cor de texto padrão */
         text-align: center;
-        margin-top: 5px;
+        margin-top: 30px;
         font-size: 16px;
     }
 
@@ -64,10 +63,10 @@ body {
 /* Estilo do Card Principal da Pergunta (Onde está #quiz com classe .question) */
 .question {
     background: #2D6B5A;
-    padding: 40px;
-    width: 90%;
-    max-width: 500px;
-    margin-top: 20px;
+    padding: 60px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 100px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -81,28 +80,23 @@ body {
     font-size: 18px;
 }
 
-/* Estilo dos botões de opção (Ajustado) */
 .opcoes-container button {
-    /* Mudei para 'flex' para alinhar a bolinha e o texto */
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* Alinha tudo à esquerda */
     width: 100%;
     padding: 12px;
     padding-left: 20px;
-    /* Adiciona espaço extra à esquerda */
     margin-top: 15px;
     border: none;
     border-radius: 20px;
     background: #ffffff;
-    color: #333;
+    color: #a07850;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: -1 2px 4px rgba(0, 0, 0, 0.1);
     text-align: left;
-    /* Garante que o texto dentro do botão seja justificado à esquerda */
 }
 
 /* Estilo da Bolinha de Radio dentro do botão */
@@ -211,8 +205,8 @@ body {
 }
 
 .resultAnimal {
- display: flex !important;
- flex-wrap: nowrap !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
 }
 
 .result img {
@@ -309,7 +303,8 @@ body {
 
 
 footer {
-    position: relative;
+    position: absolute;
+    top: 100vh;
     z-index: 1000;
     width: 100%;
     background-color: #C57F51 !important;
