@@ -2,6 +2,12 @@ const container = document.getElementById("lista-produtos");
 const inputNome = document.getElementById("filtro-nome");
 const selectCategoria = document.getElementById("filtro-categoria");
 
+//Modal 
+
+const modalMsg = document.getElementById('msg-modal');
+const modalMsgClose = document.getElementById('modal-msg-close');
+let resultadoMsg = document.querySelector(".mensagem");
+
 let produtos = [];
 
 function criarCard(prod) {
@@ -171,16 +177,7 @@ function fecharCarrinho() {
 
 }
 
-// Fechar carrinho ao clicar fora
-document.addEventListener("click", (e) => {
-    // Só se o carrinho estiver aberto
-    if (carrinhoAside.classList.contains("aberto")) {
-        // Se o clique não foi dentro do carrinho nem no botão de produto
-        if (!carrinhoAside.contains(e.target) && !e.target.closest(".btn-prod")) {
-            fecharCarrinho();
-        }
-    }
-});
+
 
 
 // Adicionar produto
@@ -261,42 +258,58 @@ function atualizarCarrinho() {
     campoTotal.textContent = "R$ " + totalFinal.toFixed(2).replace(".", ",");
     adicionarTotalModal(totalFinal);
 }
+let botaoAbrirCarrinho = document.querySelector(".card-icon");
+if (botaoAbrirCarrinho && carrinho.length > 0 ) {
+             atualizarCarrinho(); 
+            abrirCarrinho();
+            resultadoMsg.textContent = "";
+        } else {
+            resultadoMsg.textContent = "Seu carrinho está vazio!";
+        } 
 
-// // Aplicar cupom
-// document.getElementById("aplicar-cupom").addEventListener("click", () => {
-//     const cupom = cupomInput.value.trim().toUpperCase();
-
-
-// });
-// Aplicar cupom
+// Fechar carrinho ao clicar fora
+document.addEventListener("click", (e) => {
+    // Só se o carrinho estiver aberto
+    if (carrinhoAside.classList.contains("aberto")) {
+        // Se o clique não foi dentro do carrinho nem no botão de produto
+        if (!carrinhoAside.contains(e.target) && !e.target.closest(".btn-prod") && e.target.closest(".mais") === null && e.target.closest(".menos") === null && !e.target.closest(".card-icon")) { 
+            fecharCarrinho();
+        }
+    } 
+});
 let aplicarCupom = document.getElementById("aplicar-cupom");
-aplicarCupom.addEventListener("click", () => {
+
+aplicarCupom.addEventListener("click", (e) => {
+    if (e.key === 'Enter') return;
+    e.preventDefault();
+    openModalMsg();
     const cupomInput = document.getElementById("cupom-input");
     const cupom = cupomInput.value.trim().toUpperCase();
+  
 
     // Pega cupons do localStorage
     const cupons = JSON.parse(localStorage.getItem("cuponsDisponiveis")) || [];
     if (cupom === "PET40") {
-        descontoAplicado = 0.10;
-        alert(`Cupom ${cupom} aplicado!`);
+        descontoAplicado = 0.40;
+        resultadoMsg.textContent = `Cupom ${cupom} aplicado!`;
         atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
     }
     if (cupom === "DOA10") {
         descontoAplicado = 0.1;
-        alert(`Cupom ${cupom} aplicado!`);
+        resultadoMsg.textContent = `Cupom ${cupom} aplicado!`;
         atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
     }
     if (cupom === "DOA50") {
         descontoAplicado = 0.2;
-        alert(`Cupom ${cupom} aplicado!`);
+        resultadoMsg.textContent = `Cupom ${cupom} aplicado!`;
         atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
     } if (cupom === "DOA100") {
         descontoAplicado = 0.3;
-        alert(`Cupom ${cupom} aplicado!`);
+        resultadoMsg.textContent = `Cupom ${cupom} aplicado!`;
         atualizarCarrinho(); // atualiza carrinho com o desconto aplicado
     } if (!cupons.includes(cupom)) {
         descontoAplicado = 0; // garante que o desconto global seja 0
-        alert("Cupom inválido ou não disponível!");
+        resultadoMsg.textContent = "Cupom inválido ou não disponível!";
         atualizarCarrinho(); // atualiza o carrinho
         return;
     }
@@ -356,3 +369,16 @@ back.addEventListener('click', () => {
     passo2.classList.add('hidden');
     passo1.classList.remove('hidden');
 });
+
+//Modal Mensagem
+function openModalMsg() {
+    modalMsg.style.display = 'flex';
+    setTimeout(() => modalMsg.classList.add('show'), 10);
+}
+
+modalMsgClose.addEventListener('click', closeModalMsg);
+modalMsg.addEventListener('click', (e) => { if (e.target === modalMsg) closeModalMsg(); });
+
+function closeModalMsg() {
+    setTimeout(() => modalMsg.style.display = 'none', 400);
+}

@@ -610,3 +610,72 @@
      cursor: pointer;
      width: 100%;
  }
+
+ 
+.modalmsg {
+    display: none;
+    /* escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalmsg.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content-msg {
+    background-color: #fffaf1;
+    backdrop-filter: blur(6px);
+    margin: auto;
+    padding: 2em 2.5em;
+    border-radius: 15px;
+    border: 2px solid #3A1F03;
+    width: 250px;
+    color: #005A53;
+    text-align: center;
+    transform: translateY(-20px);
+    /* sobe levemente */
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.modalmsg.show .modal-content-msg {
+    transform: translateY(0);
+    /* anima de cima pra posição final */
+}
+
+#modal-msg-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #6d6a6a;
+    transition: color 0.2s;
+}
+
+#modal-msg-close:hover {
+    color: #C57F51;
+}
+
+@media (max-width: 768px) {
+    .prod-card {
+        width: 90%;
+    }
+    .filtros {
+        flex-direction: column;
+    }
+}
+
