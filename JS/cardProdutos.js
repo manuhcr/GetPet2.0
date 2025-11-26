@@ -253,6 +253,12 @@ aplicarCupom.addEventListener("click", (e) => {
     if (e.key === 'Enter') return;
     e.preventDefault();
     openModalMsg();
+    // Verificação se o carrinho está vazio
+    if (carrinho.length === 0) {
+        openModalMsg(); 
+        resultadoMsg.textContent = "Não é possível aplicar cupom, carrinho vazio!";
+        return;
+    }
     const cupomInput = document.getElementById("cupom-input");
     const cupom = cupomInput.value.trim().toUpperCase();
 
@@ -282,7 +288,7 @@ aplicarCupom.addEventListener("click", (e) => {
         resultadoMsg.textContent = "Cupom inválido ou não disponível!";
         atualizarCarrinho(); // atualiza o carrinho
         return;
-    }
+    } 
 
 
 
@@ -318,12 +324,12 @@ function exibirMensagemSemItens() {
     img.alt = "Nenhum produto encontrado no carrinho";
     response.style.textAlign = "center";
     response.style.fontSize = "18px";
-    response.style.marginTop = "200px";
+    response.style.marginTop = "70px";
     response.style.fontFamily = "'Rammetto One', sans-serif";
     response.style.color = "#ff7214ff";
     img.style.display = "block";
     img.style.margin = "30px auto";
-    img.style.maxWidth = "300px";
+    img.style.maxWidth = "200px";
     carrinhoItens.style.display = "block";
     carrinhoItens.style.alignItems = "center";
 
@@ -334,31 +340,48 @@ function exibirMensagemSemItens() {
 
 }
 
-// Abrir carrinho ao clicar na cart-icon 
-document.addEventListener("click", (e) => {
-    if (!carrinhoAside.classList.contains('aberto') && carrinho.length > 0 && e.target.closest(".cart-icon")) {
-        e.stopPropagation();
-        atualizarCarrinho();
-        abrirCarrinho();
-    }
-});
-
+// Lógica para abrir/fechar o carrinho ao clicar no ícone ou botão de compra
 document.addEventListener('click', (e) => {
-    if (carrinhoAside.classList.contains('aberto') && carrinho.length == 0) {
-        abrirCarrinho()
-        exibirMensagemSemItens();
+  // Clique no ícone do carrinho → alterna abrir/fechar
+  const iconeCarrinho = e.target.closest('.cart-icon');
+  if (iconeCarrinho) {
+    if (carrinhoAside.classList.contains('aberto')) {
+      fecharCarrinho();
+    } else {
+      abrirCarrinho();
     }
-    if (!carrinhoAside.classList.contains("aberto")) return;
+    return;
+  }
+  // Se o carrinho estiver vazio, mostra a mensagem e abre
+  if (carrinho.length === 0) {
+    exibirMensagemSemItens();
+    abrirCarrinho();
+    return;
+  } 
+  // Clique no botão comprar → abre carrinho
+  const botaoCompra = e.target.closest('.btn-prod');
+  if (botaoCompra) {
+    abrirCarrinho();
+    return;
+  }
 
-    // se clicou dentro do aside → não fecha
-    if (carrinhoAside.contains(e.target)) return;
-    // se clicou em botão de produto → não fecha
-    if (e.target.closest(".btn-prod")) return;
-    if (e.target.closest(".mais")) return;
-    if (e.target.closest(".menos")) return;
-
+ // Clique fora do carrinho → fecha
+  if (!carrinhoAside.contains(e.target)) {
     fecharCarrinho();
-})
+    return;
+  }
+  // se clicou dentro do aside → não fecha
+  if (!carrinhoAside.classList.contains("aberto")) return;
+  // se clicou em botão de produto → não fecha  
+  if (e.target.closest(".btn-prod")) return;
+  //se clicou em mais → não fecha
+  if (e.target.closest(".mais")) return;
+  //se clicou em menos → não fecha
+  if (e.target.closest(".menos")) return; 
+
+ 
+    
+});
 
 const abrirModal = document.getElementById('finalizar-compra'); // aqui é seu botão
 const fecharModal = document.getElementById('fecharModal');
