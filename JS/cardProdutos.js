@@ -44,19 +44,6 @@ function renderizarProdutos(lista) {
     lista.forEach(prod => {
         const card = criarCard(prod);
         container.appendChild(card);
-
-        const btn = card.querySelector(".btn-prod");
-        const detalhes = card.querySelector(".detalhes-prod");
-
-        btn.addEventListener("click", () => {
-            document.querySelectorAll(".detalhes-prod.aberto").forEach(outro => {
-                if (outro !== detalhes) {
-                    outro.classList.remove("aberto");
-                }
-            });
-
-            detalhes.classList.toggle("aberto");
-        });
     });
 }
 
@@ -257,26 +244,9 @@ function atualizarCarrinho() {
     let totalFinal = subtotal - descontoFinal;
     campoTotal.textContent = "R$ " + totalFinal.toFixed(2).replace(".", ",");
     adicionarTotalModal(totalFinal);
-}
-let botaoAbrirCarrinho = document.querySelector(".card-icon");
-if (botaoAbrirCarrinho && carrinho.length > 0 ) {
-             atualizarCarrinho(); 
-            abrirCarrinho();
-            resultadoMsg.textContent = "";
-        } else {
-            resultadoMsg.textContent = "Seu carrinho está vazio!";
-        } 
 
-// Fechar carrinho ao clicar fora
-document.addEventListener("click", (e) => {
-    // Só se o carrinho estiver aberto
-    if (carrinhoAside.classList.contains("aberto")) {
-        // Se o clique não foi dentro do carrinho nem no botão de produto
-        if (!carrinhoAside.contains(e.target) && !e.target.closest(".btn-prod") && e.target.closest(".mais") === null && e.target.closest(".menos") === null && !e.target.closest(".card-icon")) { 
-            fecharCarrinho();
-        }
-    } 
-});
+}
+
 let aplicarCupom = document.getElementById("aplicar-cupom");
 
 aplicarCupom.addEventListener("click", (e) => {
@@ -285,7 +255,7 @@ aplicarCupom.addEventListener("click", (e) => {
     openModalMsg();
     const cupomInput = document.getElementById("cupom-input");
     const cupom = cupomInput.value.trim().toUpperCase();
-  
+
 
     // Pega cupons do localStorage
     const cupons = JSON.parse(localStorage.getItem("cuponsDisponiveis")) || [];
@@ -338,6 +308,57 @@ document.addEventListener("click", (e) => {
     adicionarAoCarrinho(prod);
 });
 
+// Função para exibir mensagem quando não há produtos no carrinho
+function exibirMensagemSemItens() {
+
+    let img = document.createElement("img");
+    let response = document.createElement("p");
+    response.textContent = "Ops! Seu carrinho está vazio!";
+    img.src = "./Img/caoTriste.png";
+    img.alt = "Nenhum produto encontrado no carrinho";
+    response.style.textAlign = "center";
+    response.style.fontSize = "18px";
+    response.style.marginTop = "200px";
+    response.style.fontFamily = "'Rammetto One', sans-serif";
+    response.style.color = "#ff7214ff";
+    img.style.display = "block";
+    img.style.margin = "30px auto";
+    img.style.maxWidth = "300px";
+    carrinhoItens.style.display = "block";
+    carrinhoItens.style.alignItems = "center";
+
+    carrinhoItens.innerHTML = ""; // Limpa o conteúdo atual
+    carrinhoItens.appendChild(response);
+    carrinhoItens.appendChild(img);
+
+
+}
+
+// Abrir carrinho ao clicar na cart-icon 
+document.addEventListener("click", (e) => {
+    if (!carrinhoAside.classList.contains('aberto') && carrinho.length > 0 && e.target.closest(".cart-icon")) {
+        e.stopPropagation();
+        atualizarCarrinho();
+        abrirCarrinho();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (carrinhoAside.classList.contains('aberto') && carrinho.length == 0) {
+        abrirCarrinho()
+        exibirMensagemSemItens();
+    }
+    if (!carrinhoAside.classList.contains("aberto")) return;
+
+    // se clicou dentro do aside → não fecha
+    if (carrinhoAside.contains(e.target)) return;
+    // se clicou em botão de produto → não fecha
+    if (e.target.closest(".btn-prod")) return;
+    if (e.target.closest(".mais")) return;
+    if (e.target.closest(".menos")) return;
+
+    fecharCarrinho();
+})
 
 const abrirModal = document.getElementById('finalizar-compra'); // aqui é seu botão
 const fecharModal = document.getElementById('fecharModal');
@@ -361,7 +382,7 @@ opcoes.forEach(option => {
         // Mostra o form selecionado
         document.getElementById('form-' + method).classList.remove('hidden');
 
-      
+
     });
 });
 
@@ -382,3 +403,4 @@ modalMsg.addEventListener('click', (e) => { if (e.target === modalMsg) closeModa
 function closeModalMsg() {
     setTimeout(() => modalMsg.style.display = 'none', 400);
 }
+
