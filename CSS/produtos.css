@@ -683,7 +683,7 @@
 
  @media (max-width: 768px) {
      .prod-card {
-         width: 90%;
+         width: 70%;
      }
 
      .filtros {
@@ -692,6 +692,7 @@
 
      footer {
          height: auto;
+         z-index: 999;
      }
 
      .links {
@@ -712,10 +713,14 @@
          top: 100%;
      }
 
+     #carrinho {
+         width: 280px;
+     }
+
      .cachorrinho {
-         margin-top: 10px !important;
-         height: 400px !important;
-         max-width: 400px !important;
+         margin-top: -50px !important;
+         height: 300px !important;
+         max-width: 300px !important;
      }
 
      #carrinho-itens p {
@@ -724,6 +729,10 @@
      }
 
      .filtro-input {
-         width: 180px;
+         width: 160px;
+     }
+
+     .modal-content {
+         width: 320px;
      }
  }

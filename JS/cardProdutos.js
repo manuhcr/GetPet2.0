@@ -366,11 +366,7 @@ document.addEventListener('click', (e) => {
     return;
   }
 
- // Clique fora do carrinho → fecha
-  if (!carrinhoAside.contains(e.target)) {
-    fecharCarrinho();
-    return;
-  }
+ 
   // se clicou dentro do aside → não fecha
   if (!carrinhoAside.classList.contains("aberto")) return;
   // se clicou em botão de produto → não fecha  
@@ -380,7 +376,11 @@ document.addEventListener('click', (e) => {
   //se clicou em menos → não fecha
   if (e.target.closest(".menos")) return; 
 
- 
+ // Clique fora do carrinho → fecha
+  if (!carrinhoAside.contains(e.target)) {
+    fecharCarrinho();
+    return;
+  }
     
 });
 

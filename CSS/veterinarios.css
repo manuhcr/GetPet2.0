@@ -111,7 +111,6 @@
    width: 100%;
    margin-top: 80px;
    background-color: #C57F51 !important;
-   height: 116px;
  }
 
  .links {
@@ -205,6 +204,7 @@
 
    footer {
      height: auto;
+     z-index: 999;
    }
 
    .links {
