@@ -12,7 +12,7 @@ abrirModalBtn.addEventListener('click', () => {
 });
 
 fechar.addEventListener('click', () => {
-    modalPag.style.display = 'none';
+    modalPag.classList.add("hidden")
     resetSteps();
 });
 

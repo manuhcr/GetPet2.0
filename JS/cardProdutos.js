@@ -318,6 +318,7 @@ document.addEventListener("click", (e) => {
 function exibirMensagemSemItens() {
 
     let img = document.createElement("img");
+    img.classList.add("cachorrinho")
     let response = document.createElement("p");
     response.textContent = "Ops! Seu carrinho está vazio!";
     img.src = "./Img/caoTriste.png";
@@ -383,7 +384,7 @@ document.addEventListener('click', (e) => {
     
 });
 
-const abrirModal = document.getElementById('finalizar-compra'); // aqui é seu botão
+const abrirModal = document.getElementById('finalizar-compra'); 
 const fecharModal = document.getElementById('fecharModal');
 const modal = document.getElementById('modal');
 
@@ -392,7 +393,18 @@ const passo1 = document.getElementById('step1');
 const passo2 = document.getElementById('step2');
 const back = document.getElementById('voltarStep1');
 
-abrirModal.addEventListener('click', () => modal.classList.remove('hidden'));
+abrirModal.addEventListener('click', () => {
+    if (carrinho.length === 0) {
+        modal.classList.add('hidden')
+        resultadoMsg.textContent = "Não é possível finalizar compra, seu carrinho está vazio!";
+        openModalMsg();
+        return;
+ } else {
+ modal.classList.remove('hidden') 
+ }
+ 
+});
+ 
 fecharModal.addEventListener('click', () => modal.classList.add('hidden'));
 
 opcoes.forEach(option => {
