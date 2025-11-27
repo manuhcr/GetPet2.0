@@ -317,12 +317,17 @@ body {
 
 
 footer {
-    position: absolute;
-    top: 100vh;
+    position: relative;
     z-index: 1000;
     width: 100%;
     background-color: #C57F51 !important;
-    margin-top: 200px;
+    height: 116px;
+    top: 14vw;
+}
+
+.topContent {
+    display: flex;
+    justify-content: center;
 }
 
 .links {
@@ -355,6 +360,7 @@ footer {
 .redes {
     display: flex;
     justify-content: center;
+    margin-top: 26px;
 }
 
 .redes h3 {
@@ -381,7 +387,7 @@ footer {
     bottom: 0%;
     left: 0%;
     right: 0%;
-    top: 0%;
+    top: 22%;
 }
 
 .subContent {
