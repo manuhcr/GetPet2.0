@@ -261,6 +261,69 @@
    color: #3A1F03;
  }
 
+ footer {
+   position: relative;
+   z-index: 1000;
+   width: 100%;
+   background-color: #C57F51 !important;
+   top: 14vw;
+ }
+
+ .topContent {
+   display: flex;
+   justify-content: center;
+ }
+
+ .links {
+   display: flex;
+   justify-content: center;
+   margin: 1vw;
+ }
+
+
+ .links a {
+   text-decoration: none;
+   position: relative;
+   color: #FFFFFF;
+   margin: 18px 0 10px 28px;
+   font-size: 22px;
+   transition: color 0.6s ease;
+ }
+
+
+ .links a:hover::after {
+   position: absolute;
+   width: 0;
+   height: 2px;
+   left: 0;
+   bottom: 0px;
+   background-color: #fffbed;
+   transition: width 0.6s ease;
+ }
+
+ .redes {
+   display: flex;
+   justify-content: center;
+   margin-top: 26px;
+ }
+
+ .redes h3 {
+   text-decoration: none;
+   color: #365914;
+   margin-left: 10px;
+   margin-top: 6px;
+   font-size: 22px;
+ }
+
+ .redes a {
+   margin-left: 20px;
+   transition: all 1s;
+ }
+
+ .redes a:hover {
+   transform: scale(1.1);
+ }
+
  /* ANIMAÇÕES */
  @keyframes fadeIn {
    from {
@@ -284,22 +347,6 @@
    }
  }
 
- /* RESPONSIVO */
- @media (max-width: 520px) {
-   .modal-pet-content {
-     padding: 10px;
-   }
-
-   #modalPetImg {
-     width: 120px;
-     height: 120px;
-   }
-
-   .modal-pet-info li {
-     flex-direction: column;
-     align-items: flex-start;
-   }
- }
 
  footer {
    position: relative;
@@ -366,8 +413,20 @@
    bottom: 0%;
    left: 0%;
    right: 0%;
-   top: 0%;
+   top: 14%;
  }
+
+ .subContent {
+   background-color: #005A53 !important;
+   width: 100%;
+   height: 100px;
+   position: absolute;
+   bottom: 0%;
+   left: 0%;
+   right: 0%;
+   top: 100%;
+ }
+
 
  .subContent {
    background-color: #005A53 !important;
@@ -384,7 +443,7 @@
  .subContent p {
    margin-top: 30px;
    text-align: center;
-   color: #365914;
+   color: white;
  }
 
  .subContent h6 {
@@ -392,4 +451,49 @@
    font-size: 14px;
    text-align: center;
    color: white;
+ }
+
+ /* RESPONSIVO */
+ @media (max-width: 520px) {
+   .modal-pet-content {
+     padding: 10px;
+   }
+
+   #modalPetImg {
+     width: 120px;
+     height: 120px;
+   }
+
+   .modal-pet-info li {
+     flex-direction: column;
+     align-items: flex-start;
+   }
+
+   footer {
+     height: auto;
+     width: 102%;
+     margin-top: 2em;
+   }
+
+   .links {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     padding: 2px;
+     margin-left: -24px;
+   }
+
+   .topContent {
+     flex-direction: column;
+   }
+
+   .subContent {
+
+     height: 150px;
+     top: 100%;
+   }
+
+   .filtro-input {
+     width: 150px;
+   }
  }

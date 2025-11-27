@@ -1,5 +1,7 @@
 import animais from './animais.js';
 
+
+
 const container = document.getElementById("adocao-container");
 const inputFiltro = document.getElementById("filtro-adocao");
 const selectFiltro = document.getElementById("filtro-tipo");

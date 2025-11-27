@@ -66,7 +66,8 @@ body {
     padding: 60px;
     width: 100%;
     max-width: 600px;
-    margin-top: 100px;
+    margin-top: 80px;
+    margin-bottom: 40px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -155,6 +156,19 @@ body {
 .opcoes-container button.selected .bolinha-radio::after {
     background-color: #ffffff;
     /* Ponto interno branco quando selecionado */
+}
+
+.result-btn {
+    background-color: #2D6B5A;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.result-btn:hover {
+    background-color: #C57F51;
+    color: #1a1212;
 }
 
 /* Ajuste nos botões de navegação (Voltar/Próxima/Finalizar) */
@@ -308,7 +322,7 @@ footer {
     z-index: 1000;
     width: 100%;
     background-color: #C57F51 !important;
-    height: 116px;
+    margin-top: 200px;
 }
 
 .links {
@@ -393,4 +407,58 @@ footer {
     font-size: 14px;
     text-align: center;
     color: white;
+}
+
+
+@media (max-width: 768px) {
+
+    footer {
+        height: auto;
+        width: 102%;
+        margin-top: 2em;
+    }
+
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 2px;
+        margin-left: -24px;
+    }
+
+    .topContent {
+        flex-direction: column;
+    }
+
+    .subContent {
+
+        height: 150px;
+        top: 100%;
+    }
+
+    .resultAnimal {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center;
+    }
+
+    .question {
+        width: 90%;
+        max-width: 250px;
+        margin-top: 20px;
+    }
+
+    #quiz-header {
+        place-items: anchor-center;
+        margin: 2px;
+    }
+
+    .opcoes-container button::before {
+        width: 0;
+    }
+
+    .result {
+        max-width: 300px;
+        width: 250px;
+    }
 }

@@ -208,3 +208,34 @@
    color: #71AB3E;
    font-weight: bold;
  }
+
+ @media (max-width: 768px) {
+  
+
+   footer {
+     height: auto;
+     z-index: 999;
+   }
+
+   .links {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     padding: 2px;
+     margin-left: -24px;
+   }
+
+   .topContent {
+     flex-direction: column;
+   }
+
+   .subContent {
+
+     height: 150px;
+     top: 100%;
+   }
+
+   .adestramento-card {
+     width: 350px;
+   }
+ }

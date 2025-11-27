@@ -197,3 +197,31 @@
    text-align: center;
    color: white;
  }
+
+ @media (max-width: 768px) {
+   .filtro-input {
+     width: 150px;
+   }
+
+   footer {
+     height: auto;
+   }
+
+   .links {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     padding: 2px;
+     margin-left: -24px;
+   }
+
+   .topContent {
+     flex-direction: column;
+   }
+
+   .subContent {
+
+     height: 150px;
+     top: 100%;
+   }
+ }
